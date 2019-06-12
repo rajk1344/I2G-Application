@@ -35,8 +35,9 @@ with open(projects_file_name, 'r', encoding='utf-8-sig') as csvfile:
     csvread = csv.reader(csvfile)
     # populate projects
     for row in csvread:
-        projects.append(Project(row,4))
+        # size fixed to 4 for now
+        projects.append(Project(row, 4))
 
-#testing
+# testing
 
 match(students, projects)
