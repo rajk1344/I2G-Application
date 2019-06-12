@@ -1,7 +1,8 @@
 import csv
+
 from matcher import *
-from student import *
 from project import *
+from student import *
 
 students_file_name = "roster.csv"
 projects_file_name = 'projects.csv'
