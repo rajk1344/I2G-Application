@@ -4,10 +4,10 @@ def main ():
 
     projectInfo = []
     studentArray = []
-    timestamps = []
-    studentFirstNames = []
-    studentLastNames = []
-    studentEmails = []
+    # timestamps = []
+    # studentFirstNames = []
+    # studentLastNames = []
+    # studentEmails = []
 
     # teamNumber = [0]
 
@@ -46,15 +46,13 @@ def main ():
 
             print(f'Dear {primaryContactFirstName},\n')
             print(f"These students digitally signed the IP+NDA agreement 'UC Merced Innovate to Grow Program - Student Registration and Agreement' with UC Merced ID credentials:")
-            print('Timestamp\t First Name\tLast Name\tEmail')
+            print('Timestamp\t\tFirst Name\t\tLast Name\tEmail')
 
             
             for listedInfo in studentArray:
                 for i in range(4):
                     print(listedInfo[i], end = '\t\t') 
                 print()
-                
-            
 
             print(f"""to participate in your project:
 Project ID:	                    {projectID}
