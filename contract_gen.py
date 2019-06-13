@@ -57,10 +57,10 @@ def main():
     clientList = []
     studentList = []
     
-    projectIDLocater = input('Enter the project ID: ')
+    #TeamNumberLocater = input('Enter the project ID: ')
     
-    projects = open('2019-01-Spring-CSE-MASTER - PROJECTS.csv','r',encoding = "utf8")
-    students = open('2019-01-Spring-CSE-MASTER - STUDENTS.csv','r',encoding = "utf8")
+    projects = open('2019-01-Spring-CAP-MASTER - PROJECTS.csv','r',encoding = "utf8")
+    students = open('2019-01-Spring-CAP-MASTER - STUDENTS.csv','r',encoding = "utf8")
 
     # count for creating  clientList
     count = 0
@@ -71,27 +71,27 @@ def main():
         for row in csvReader:
             data = [row for row in csv.reader(csvDataFile)]
             for i in data:
-                if projectIDLocater == i[0]:
-                    client_FirstName = i[4]
-                    client_LastName = i[5]
-                    client_Email = i[6]
-                    client_OrganizationName = i[3]
+                #if TeamNumberLocater == i[1]:
+                client_FirstName = i[4]
+                client_LastName = i[5]
+                client_Email = i[6]
+                client_OrganizationName = i[3]
 
-                    project_ID = i[0]
-                    project_Title = i[17]
-                    project_TeamNumber = i[1]
-                    
-                    if count > 0:
-                        # appending a lists for the respective projectID
-                        clientList.append(csvProjectInfo(client_FirstName, client_LastName, client_Email,client_OrganizationName, project_ID, project_TeamNumber, project_Title))
+                project_ID = i[0]
+                project_Title = i[17]
+                project_TeamNumber = i[1]
                 
-                    count = count + 1
+                if count > 0:
+                    # appending a lists for the respective projectID
+                    clientList.append(csvProjectInfo(client_FirstName, client_LastName, client_Email,client_OrganizationName, project_ID, project_TeamNumber,project_Title))
+            
+                count = count + 1
 
 
         
 
 
-    clientList[0].printStuff()
+        clientList[32].printStuff()
         
                     
                     
