@@ -1,5 +1,3 @@
 class Project(object):
-    def __init__(self, number, size):
-        self.number = number
-        self.size = size
-    
+    def __init__(self, project_id):
+        self.project_id = project_id    

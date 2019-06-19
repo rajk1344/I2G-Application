@@ -90,7 +90,7 @@ def match(student_arr, project_arr):
         print("\n")
 
     for project in project_arr:
-        print(project.number)
+        print(project.project_id)
         print(project.size)
         for student in project.students:
             print(student.first_name)

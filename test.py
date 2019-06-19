@@ -17,7 +17,7 @@ with open(students_file_name, 'r', encoding='utf-8-sig') as csvfile:
     for row in csvread:
         temp = []
         # convert string preferances into numericals
-        for pref in row[3:]:
+        for pref in row[4:]:
             if pref == 'Definitely yes':
                 temp.append(5)
             elif pref == 'Probably yes':
@@ -29,16 +29,13 @@ with open(students_file_name, 'r', encoding='utf-8-sig') as csvfile:
             else:
                 temp.append(1)
 
-        students.append(Student(row[0], row[1], row[2], temp))
+        students.append(Student(row[0], row[1], row[2], row[3], temp))
 
 with open(projects_file_name, 'r', encoding='utf-8-sig') as csvfile:
     # create csvread obj
     csvread = csv.reader(csvfile)
     # populate projects
     for row in csvread:
-        # size fixed to 4 for now
-        projects.append(Project(row, 4))
-
-# testing
+        projects.append(Project(row[0]))
 
 match(students, projects)
