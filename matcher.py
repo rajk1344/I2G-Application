@@ -1,6 +1,6 @@
 import sys
 import math
-
+import csv
 # matcher methods
 
 
@@ -76,12 +76,18 @@ def match(student_arr, project_arr):
     #populate students in project based of preferances
     for student in student_arr:
         sort_by_preferance(student)
-        for i in student.sorted_project_preferances: 
+        for i in student.sorted_project_preferances:
                 if space_available(project_arr[i-1]):
                     project_arr[i-1].students.append(student)
                     break
-
-
+    with open('data/output/student-project.csv','w') as f:
+        writer = csv.writer(f)
+        for project in project_arr:
+            writer.writerow(['Project',project.project_id])
+            for student in project.students:
+                writer.writerow([student.first_name,student.last_name, student.email])
+            writer.writerow("\n")
+"""
     for student in student_arr:
         print(student.first_name)
         print(student.net_score)
@@ -95,3 +101,4 @@ def match(student_arr, project_arr):
         for student in project.students:
             print(student.first_name)
         print("\n")
+"""
