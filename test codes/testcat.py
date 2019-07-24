@@ -2,8 +2,8 @@ import csv
 
 from missing_student import *
 
-catcourse_file_name = "testcat.csv"
-qualtrics_file_name = "testqualtrics.csv"
+catcourse_file_name = "data/input/testcat.csv"
+qualtrics_file_name = "data/input/testqualtrics.csv"
 catcourse = []
 qualtrics = []
 
@@ -23,4 +23,5 @@ with open(catcourse_file_name, 'r', encoding='utf-8-sig') as csvfile:
         catcourse.append(missing_student(temp[0],temp[1]))
 
 
-list_missing(catcourse,qualtrics)
+l1=list_missing(catcourse,qualtrics)
+export_list(l1)
