@@ -24,6 +24,7 @@ def list_missing(catcourse, qualtrics):
             missing.append(missing_student(student.name, student.email))
         t=0
     return missing
+
 def export_list(missing):
     with open('data/output/missing-students.csv','w') as f:
         writer = csv.writer(f)

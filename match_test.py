@@ -4,7 +4,7 @@ from matcher import *
 from project import *
 from student import *
 
-students_file_name = "data/input/roster.csv"
+students_file_name = "data/input/Student_final_roster.csv"
 projects_file_name = 'data/input/projects.csv'
 students = []
 projects = []
@@ -17,7 +17,7 @@ with open(students_file_name, 'r', encoding='utf-8-sig') as csvfile:
     for row in csvread:
         temp = []
         # convert string preferances into numericals
-        for pref in row[4:]:
+        for pref in row[14:]:
             if pref == 'Definitely yes':
                 temp.append(5)
             elif pref == 'Probably yes':
@@ -29,14 +29,15 @@ with open(students_file_name, 'r', encoding='utf-8-sig') as csvfile:
             else:
                 temp.append(1)
 
-        students.append(Student(row[0], row[1], row[2], row[3], temp))
+        students.append(Student(row[0], row[2], row[3], row[4], row[9], temp))
 
 with open(projects_file_name, 'r', encoding='utf-8-sig') as csvfile:
     # create csvread obj
     csvread = csv.reader(csvfile)
     # populate projects
     for row in csvread:
-        projects.append(Project(row[0], row[3], row[4], row[5], row[6], row[9] ))
+        projects.append(
+            Project(row[0], row[3], row[4], row[5], row[6], row[9]))
 
 match(students, projects)
 
@@ -48,8 +49,8 @@ for student in students:
     print("\n")
 
 for project in projects:
-    print(project.project_id + "\t" + project.project_title )
+    print(project.project_id + "\t" + project.project_title)
     print(project.size)
     for student in project.students:
-        print(student.first_name)
+        print(student.first_name + "\t" + student.email)
     print("\n")
