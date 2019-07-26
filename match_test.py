@@ -41,6 +41,7 @@ with open(projects_file_name, 'r', encoding='utf-8-sig') as csvfile:
 
 match(students, projects)
 
+
 for student in students:
     print(student.first_name)
     print(student.net_score)
@@ -52,5 +53,5 @@ for project in projects:
     print(project.project_id + "\t" + project.project_title)
     print(project.size)
     for student in project.students:
-        print(student.first_name + "\t" + student.email)
+        print(student.first_name + "\t\t" + student.email)
     print("\n")
