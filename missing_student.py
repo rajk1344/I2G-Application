@@ -1,4 +1,5 @@
 import csv
+
 class missing_student(object):
     def __init__(self, name, email):
         self.name = name

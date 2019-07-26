@@ -1,6 +1,6 @@
 import csv
 
-from missing_student import *
+import missing_student
 
 catcourse_file_name = "data/input/testcat.csv"
 qualtrics_file_name = "data/input/testqualtrics.csv"
