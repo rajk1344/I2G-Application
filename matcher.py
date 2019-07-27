@@ -1,6 +1,9 @@
 import sys
 import math
 import csv
+
+from write import *
+
 # matcher methods
 
 
@@ -59,46 +62,26 @@ def remove_duplicates(student_arr):
 
 
 def match(student_arr, project_arr):
-    #sort students by net score
+    # sort students by net score
     set_net_score(student_arr)
     sort_by_net_score(student_arr)
 
-    #remove duplictes
+    # remove duplictes
     remove_duplicates(student_arr)
 
-    #find and apply size of each project
+    # find and apply size of each project
     size = math.ceil(float(len(student_arr))/float(len(project_arr)))
 
     for project in project_arr:
         project.size = size
         project.students = []
 
-    #populate students in project based of preferances
+    # populate students in project based of preferances
     for student in student_arr:
         sort_by_preferance(student)
         for i in student.sorted_project_preferances:
-                if space_available(project_arr[i-1]):
-                    project_arr[i-1].students.append(student)
-                    break
-    with open('data/output/student-project.csv','w') as f:
-        writer = csv.writer(f)
-        for project in project_arr:
-            writer.writerow(['Project',project.project_id])
-            for student in project.students:
-                writer.writerow([student.first_name,student.last_name, student.email])
-            writer.writerow("\n")
-"""
-    for student in student_arr:
-        print(student.first_name)
-        print(student.net_score)
-        print(student.preferances)
-        print(student.sorted_project_preferances)
-        print("\n")
+            if space_available(project_arr[i-1]):
+                project_arr[i-1].students.append(student)
+                break
 
-    for project in project_arr:
-        print(project.project_id)
-        print(project.size)
-        for student in project.students:
-            print(student.first_name)
-        print("\n")
-"""
+    write_projects_csv(project_arr)

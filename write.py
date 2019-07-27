@@ -1,7 +1,7 @@
 import csv
 from fpdf import FPDF
 
-def write_project_csv(project_arr):
+def write_projects_csv(project_arr):
     
     with open('data/output/student-project.csv', 'w') as f:
         writer = csv.writer(f)
@@ -11,7 +11,7 @@ def write_project_csv(project_arr):
                 writer.writerow([student.first_name,student.last_name, student.email])
             writer.writerow("\n")
 
-def write_pdf_contract(project):
+def write_project_pdf_contract(project):
     # creating the pdf document
     pdf = FPDF(format='letter', unit='in')
     pdf.add_page()
@@ -73,4 +73,5 @@ University of California Merced, Director of Innovation -> engineering.ucmerced.
     pdf.ln(0.5)
 
     # saves as filename
-    pdf.output('contracts.pdf', 'F')
+    # pdf.output('data/output/contracts/2019-July-Fall-CAP-StudentAgreement-Team'+project.project_TeamNumber+'-'+project.client_OrganizationName+'-'+project.project_ID+'.pdf','F')
+    pdf.output('data/2019-July-Fall-CAP-StudentAgreement-Team'+'project.project_TeamNumber'+'-'+project.client_organization_name+'-'+project.project_id+'.pdf','F')

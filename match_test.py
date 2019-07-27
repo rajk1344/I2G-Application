@@ -3,6 +3,7 @@ import csv
 from matcher import *
 from project import *
 from student import *
+from write import *
 
 students_file_name = "data/input/Student_final_roster.csv"
 projects_file_name = 'data/input/projects.csv'
@@ -55,3 +56,5 @@ for project in projects:
     for student in project.students:
         print(student.first_name + "\t\t" + student.email)
     print("\n")
+
+write_project_pdf_contract(projects[1])
