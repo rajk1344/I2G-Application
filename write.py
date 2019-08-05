@@ -73,5 +73,4 @@ University of California Merced, Director of Innovation -> engineering.ucmerced.
     pdf.ln(0.5)
 
     # saves as filename
-    # pdf.output('data/output/contracts/2019-July-Fall-CAP-StudentAgreement-Team'+project.project_TeamNumber+'-'+project.client_OrganizationName+'-'+project.project_ID+'.pdf','F')
-    pdf.output('data/2019-July-Fall-CAP-StudentAgreement-Team'+'project.project_TeamNumber'+'-'+project.client_organization_name+'-'+project.project_id+'.pdf','F')
+    pdf.output('data/output/contracts/2019-July-Fall-CAP-StudentAgreement-Team'+project.project_TeamNumber+'-'+project.client_OrganizationName+'-'+project.project_ID+'.pdf','F')
