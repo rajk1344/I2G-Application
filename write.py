@@ -5,13 +5,20 @@ def write_projects_csv(project_arr):
 
     with open('data/output/student-project.csv', 'w') as f:
         writer = csv.writer(f)
-        writer.writerow(['Timestamp','First Name', 'Last Name', 'Email','Team #','Project ID','Project Title','Organization Name','Client First Name','Client Last Name'])
-        writer.writerow("\n")
+        writer.writerow(['Timestamp','First Name', 'Last Name', 'Email','Team #','Project ID','Organization Name','Client First Name','Client Last Name','Client Email','Project Title'])
         team_number = 1
         for project in project_arr:
             for student in project.students:
-                writer.writerow([student.timestamp,student.first_name,student.last_name, student.email,team_number,project.project_id,project.project_title,project.client_organization_name,project.client_first_name,project.client_last_name])
+                writer.writerow([student.timestamp,student.first_name,student.last_name, student.email,team_number,project.project_id,project.client_organization_name,project.client_first_name,project.client_last_name,project.client_email,project.project_title])
             team_number = team_number + 1;
+
+def export_missing_students(missing):
+    with open('data/output/missing-students.csv','w') as f:
+        writer = csv.writer(f)
+
+        writer.writerow(['First Name','Last Name','Email'])
+        for student in missing:
+            writer.writerow([student.first_name,student.last_name,student.email])
 
 def write_project_pdf_contract(project):
     # creating the pdf document
