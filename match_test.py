@@ -39,13 +39,9 @@ with open(projects_file_name, 'r', encoding='utf-8-sig') as csvfile:
     for row in csvread:
         projects.append(
             Project(row[0], row[3], row[4], row[5], row[6], row[9]))
-choice = input("1. Match \n 2. Find missing students \n 3. Generate contracts")
-if choice == 1:
-    match(students,projects)
 
 match(students, projects)
 
-"""
 for student in students:
     print(student.first_name)
     print(student.net_score)
@@ -59,5 +55,5 @@ for project in projects:
     for student in project.students:
         print(student.first_name + "\t\t" + student.email)
     print("\n")
-"""
+
 write_project_pdf_contract(projects[1])
