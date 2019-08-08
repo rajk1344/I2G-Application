@@ -18,7 +18,7 @@ students2 = []
 projects2 = []
 choice = input("1. Match \n2. Find missing students \n3. Generate contracts\n")
 # read csv files
-with open(students_file_name, 'r', encoding='utf-8-sig') as csvfile:
+with open(students_file_name, 'r', encoding= 'utf-8-sig') as csvfile:
     # create csvread obj
     csvread = csv.reader(csvfile)
     # populate students with Student obj
