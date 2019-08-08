@@ -1,34 +1,15 @@
 import csv
-
-class missing_student(object):
-    def __init__(self, name, email):
-        self.name = name
-        self.email = email
-
-def get_name(student):
-    return student.name
-
-def get_email(student):
-    return student.email
-
+from student import *
 def list_missing(catcourse, qualtrics):
     t=0
     missing = []
     for student in catcourse:
-        cat_email = get_email(student)
+        cat_email = student.email
         for stud in qualtrics:
-            qual_email = get_email(stud)
-            if qual_email[0:len(qual_email)-13]==cat_email:
+            qual_email = stud.email
+            if qual_email==cat_email:
                 t = 1
         if t==0:
-            missing.append(missing_student(student.name, student.email))
+            missing.append(Student(0,student.first_name,student.last_name, student.email,0,0))
         t=0
     return missing
-
-def export_list(missing):
-    with open('data/output/missing-students.csv','w') as f:
-        writer = csv.writer(f)
-
-        writer.writerow(['Name','Email'])
-        for student in missing:
-            writer.writerow([get_name(student),get_email(student)])

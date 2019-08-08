@@ -42,7 +42,6 @@ with open(projects_file_name, 'r', encoding='utf-8-sig') as csvfile:
 
 match(students, projects)
 
-
 for student in students:
     print(student.first_name)
     print(student.net_score)

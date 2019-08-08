@@ -2,14 +2,23 @@ import csv
 from fpdf import FPDF
 
 def write_projects_csv(project_arr):
-    
+
     with open('data/output/student-project.csv', 'w') as f:
         writer = csv.writer(f)
+        writer.writerow(['Timestamp','First Name', 'Last Name', 'Email','Team #','Project ID','Organization Name','Client First Name','Client Last Name','Client Email','Project Title'])
+        team_number = 1
         for project in project_arr:
-            writer.writerow(['Project',project.project_id])
             for student in project.students:
-                writer.writerow([student.first_name,student.last_name, student.email])
-            writer.writerow("\n")
+                writer.writerow([student.timestamp,student.first_name,student.last_name, student.email,team_number,project.project_id,project.client_organization_name,project.client_first_name,project.client_last_name,project.client_email,project.project_title])
+            team_number = team_number + 1;
+
+def export_missing_students(missing):
+    with open('data/output/missing-students.csv','w') as f:
+        writer = csv.writer(f)
+
+        writer.writerow(['First Name','Last Name','Email'])
+        for student in missing:
+            writer.writerow([student.first_name,student.last_name,student.email])
 
 def write_project_pdf_contract(project):
     # creating the pdf document
@@ -35,7 +44,7 @@ def write_project_pdf_contract(project):
         pdf.set_font('Times', 'B', 10.0)
         pdf.cell(columnWidth, th, str(row), border=2)
     pdf.ln(th)
-    
+
     for student in project.students:
         pdf.set_font('Times', '', 10.0)
         finalList = [student.timestamp, student.first_name,

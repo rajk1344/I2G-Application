@@ -1,61 +1,32 @@
-Project,20190059
-Tony,Stark,tstark@ucmerced.edu
-S7,Kumar7,SK7@ucmerced.edu
-"
-"
-Project,20190060
-Shruti,Chakraborty,schakraborty@ucmerced.edu
-S9,Kumar9,SK9@ucmerced.edu
-Jake,Smith,jsmith@ucmerced.edu
-Joe,Biden,biden2@ucmerced.edu
-"
-"
-Project,20190061
-Devanshu,Kumar,dkumar7@ucmerced.edu
-S4,Kumar4,SK4@ucmerced.edu
-Kiran,Raj,kraj3@ucmerced.edu
-Max,Fallor,fallor1@ucmerced.edu
-"
-"
-Project,20190062
-Shruti,Chalk,chalk@ucmerced.edu
-Stefano,Forest,forest@ucmerced.edu
-"
-"
-Project,20190063
-Daniel,Disks,ddisks@ucmerced.edu
-S5,Kumar5,SK5@ucmerced.edu
-Kim,Ly,kly@ucmerced.edu
-"
-"
-Project,20190064
-S2,Kumar2,SK2@ucmerced.edu
-S8,Kumar8,SK8@ucmerced.edu
-Baskin,Robbins,brobbins@ucmerced.edu
-Jack,Daniel,daniel1@ucmerced.edu
-"
-"
-Project,20190065
-George,Bubbles,gbubbles@ucmerced.edu
-Kiran,Raj,kraj@ucmerced.edu
-Jon,Do,do2@ucmerced.edu
-Blake,Smith,bsmith@ucmerced.edu
-"
-"
-Project,20190066
-Alejandero,Gonzalas,gonzalas@ucmerced.edu
-Jason,Bourne,jbourne@ucmerced.edu
-"
-"
-Project,20190067
-S3,Kumar3,SK3@ucmerced.edu
-S10,Kumar10,SK10@ucmerced.edu
-"
-"
-Project,20190068
-S1,Kumar1,SK1@ucmerced.edu
-DB,Xi,xi@ucmerced.edu
-S6,Kumar6,SK6@ucmerced.edu
-Dev,Kumran,kumaran@ucmerced.edu
-"
-"
+Timestamp,First Name,Last Name,Email,Team #,Project ID,Organization Name,Client First Name,Client Last Name,Client Email,Project Title
+6/17/19 18:52,Tony,Stark,tstark@ucmerced.edu,1,20190059,T3 Energy,George,Panferov,g.panferov@sigbt.com,Mechanically Programmed Compression Device for T3Energy/SIGBT Highly Insulated Walls
+6/17/19 18:52,S7,Kumar7,SK7@ucmerced.edu,1,20190059,T3 Energy,George,Panferov,g.panferov@sigbt.com,Mechanically Programmed Compression Device for T3Energy/SIGBT Highly Insulated Walls
+6/12/19 13:37,Shruti,Chakraborty,schakraborty@ucmerced.edu,2,20190060,Morning Star,Tyler,Silverbottoms,tsilverbottom@morningstarco.com,MOT Removal & Water Treatment
+6/17/19 18:52,S9,Kumar9,SK9@ucmerced.edu,2,20190060,Morning Star,Tyler,Silverbottoms,tsilverbottom@morningstarco.com,MOT Removal & Water Treatment
+6/17/19 18:52,Jake,Smith,jsmith@ucmerced.edu,2,20190060,Morning Star,Tyler,Silverbottoms,tsilverbottom@morningstarco.com,MOT Removal & Water Treatment
+6/17/19 18:52,Joe,Biden,biden2@ucmerced.edu,2,20190060,Morning Star,Tyler,Silverbottoms,tsilverbottom@morningstarco.com,MOT Removal & Water Treatment
+6/17/19 18:52,Devanshu,Kumar,dkumar7@ucmerced.edu,3,20190061,Bottens Family Farm,JR,Tacos,jrtacos@bottens.com,Livestock Waterer
+6/17/19 18:52,S4,Kumar4,SK4@ucmerced.edu,3,20190061,Bottens Family Farm,JR,Tacos,jrtacos@bottens.com,Livestock Waterer
+6/12/19 13:36,Kiran,Raj,kraj3@ucmerced.edu,3,20190061,Bottens Family Farm,JR,Tacos,jrtacos@bottens.com,Livestock Waterer
+6/17/19 18:52,Max,Fallor,fallor1@ucmerced.edu,3,20190061,Bottens Family Farm,JR,Tacos,jrtacos@bottens.com,Livestock Waterer
+6/17/19 18:52,Shruti,Chalk,chalk@ucmerced.edu,4,20190062,Bowles Farming,Tommy,Silberman,tommy@bfarm.com,Milkweed Harvester
+6/17/19 18:52,Stefano,Forest,forest@ucmerced.edu,4,20190062,Bowles Farming,Tommy,Silberman,tommy@bfarm.com,Milkweed Harvester
+6/17/19 18:52,Daniel,Disks,ddisks@ucmerced.edu,5,20190063,Bay Area Rapid Transit (BART),Jessica,Lovett,JLovett@bart.gov,Track Obstruction Detection
+6/17/19 18:52,S5,Kumar5,SK5@ucmerced.edu,5,20190063,Bay Area Rapid Transit (BART),Jessica,Lovett,JLovett@bart.gov,Track Obstruction Detection
+6/17/19 18:52,Kim,Ly,kly@ucmerced.edu,5,20190063,Bay Area Rapid Transit (BART),Jessica,Lovett,JLovett@bart.gov,Track Obstruction Detection
+6/17/19 18:52,S2,Kumar2,SK2@ucmerced.edu,6,20190064,Bay Area Rapid Transit (BART),Jessica,Lovett,JLovett@bart.gov,Tracking Inspection Apparatus
+6/17/19 18:52,S8,Kumar8,SK8@ucmerced.edu,6,20190064,Bay Area Rapid Transit (BART),Jessica,Lovett,JLovett@bart.gov,Tracking Inspection Apparatus
+6/17/19 18:52,Baskin,Robbins,brobbins@ucmerced.edu,6,20190064,Bay Area Rapid Transit (BART),Jessica,Lovett,JLovett@bart.gov,Tracking Inspection Apparatus
+6/17/19 18:52,Jack,Daniel,daniel1@ucmerced.edu,6,20190064,Bay Area Rapid Transit (BART),Jessica,Lovett,JLovett@bart.gov,Tracking Inspection Apparatus
+6/17/19 18:52,George,Bubbles,gbubbles@ucmerced.edu,7,20190065,Bay Area Rapid Transit (BART),Jessica,Lovett,JLovett@bart.gov,Odor Abatement
+6/17/19 18:52,Kiran,Raj,kraj@ucmerced.edu,7,20190065,Bay Area Rapid Transit (BART),Jessica,Lovett,JLovett@bart.gov,Odor Abatement
+6/17/19 18:52,Jon,Do,do2@ucmerced.edu,7,20190065,Bay Area Rapid Transit (BART),Jessica,Lovett,JLovett@bart.gov,Odor Abatement
+6/17/19 18:52,Blake,Smith,bsmith@ucmerced.edu,7,20190065,Bay Area Rapid Transit (BART),Jessica,Lovett,JLovett@bart.gov,Odor Abatement
+6/17/19 18:52,Alejandero,Gonzalas,gonzalas@ucmerced.edu,8,20190066,Bay Area Rapid Transit (BART),Jessica,Lovett,JLovett@bart.gov,Paved Road Perfection
+6/17/19 18:52,Jason,Bourne,jbourne@ucmerced.edu,8,20190066,Bay Area Rapid Transit (BART),Jessica,Lovett,JLovett@bart.gov,Paved Road Perfection
+6/17/19 18:52,S3,Kumar3,SK3@ucmerced.edu,9,20190067,TranPak,Aaron,Nguyen,amguyen@tranpak.com,Cheese Box
+6/17/19 18:52,S10,Kumar10,SK10@ucmerced.edu,9,20190067,TranPak,Aaron,Nguyen,amguyen@tranpak.com,Cheese Box
+6/17/19 18:52,S1,Kumar1,SK1@ucmerced.edu,10,20190068,Turlock Irrigation District,Michelle,Geimer,mageimers@tid.org,Fish Strainer
+6/17/19 18:52,DB,Xi,xi@ucmerced.edu,10,20190068,Turlock Irrigation District,Michelle,Geimer,mageimers@tid.org,Fish Strainer
+6/17/19 18:52,S6,Kumar6,SK6@ucmerced.edu,10,20190068,Turlock Irrigation District,Michelle,Geimer,mageimers@tid.org,Fish Strainer
+6/17/19 18:52,Dev,Kumran,kumaran@ucmerced.edu,10,20190068,Turlock Irrigation District,Michelle,Geimer,mageimers@tid.org,Fish Strainer
