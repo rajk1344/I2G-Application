@@ -15,7 +15,7 @@ class I2Gapp(tk.Tk):
 
         self.frames = {}
 
-        for F in (StartPage, StudentMatcher):
+        for F in (StartPage, StudentMatcher, CatCoursesMatcher):
             frame = F(container, self)
 
             self.frames[F] = frame
@@ -44,26 +44,36 @@ class StartPage(tk.Frame):
         self.button1.grid(column=1, row=2, padx=20, pady=5)
 
         self.button2 = tk.Button(
-            self, text="CatCource Camparison")
+            self, text="CatCourses Camparison",
+            command=lambda: controller.show_frame(CatCoursesMatcher))
         self.button2.grid(column=1, row=3, padx=20, pady=5)
 
         self.button3 = tk.Button(
             self, text="Contract Creator")
         self.button3.grid(column=1, row=4, padx=20, pady=5)
 
+        self.grid_rowconfigure(0, weight=1)
+        self.grid_rowconfigure(5, weight=1)
+        self.grid_columnconfigure(0, weight=1)
+        self.grid_columnconfigure(2, weight=1)
+
 
 class StudentMatcher(tk.Frame):
 
     def __init__(self, parent, controller):
         tk.Frame.__init__(self, parent)
-        label = tk.Label(self, text="I2G Application")
+        label = tk.Label(self, text="Student Matcher")
         label.grid(column=1, row=1, padx=20, pady=20)
 
-        self.minsize = (640, 400)
+        self.minsize = (1000, 1000)
         self.student_file_button()
         self.project_file_button()
         self.run_button()
-        self.back_button()
+
+        self.button = tk.Button(
+        self, text="<- BACK", 
+            command=lambda: controller.show_frame(StartPage))
+        self.button.grid(column=0, row=6, padx=20, pady=10)
 
     def student_file_button(self):
         self.button = tk.Button(
@@ -73,7 +83,7 @@ class StudentMatcher(tk.Frame):
     def student_file_dialog(self):
         self.student_filename = filedialog.askopenfile(
             initialdir="/", title="Select Student Roster", filetype=(("Comma-sperated Values", "*.csv"), ("All Files", "*.*")))
-        self.label = tk.Label(self, text=self.student_filename)
+        self.label = tk.Label(self, text=self.student_filename.name)
         self.label.grid(column=1, row=3, padx=20, pady=0)
 
     def project_file_button(self):
@@ -84,7 +94,7 @@ class StudentMatcher(tk.Frame):
     def project_file_dialog(self):
         self.project_filename = filedialog.askopenfile(
             initialdir="/", title="Select Project Roster", filetype=(("Comma-sperated Values", "*.csv"), ("All Files", "*.*")))
-        self.label = tk.Label(self, text=self.project_filename)
+        self.label = tk.Label(self, text=self.project_filename.name)
         self.label.grid(column=1, row=5, padx=20, pady=0)
 
     def run_button(self):
@@ -93,11 +103,51 @@ class StudentMatcher(tk.Frame):
 
         # TODO add run
 
-    def back_button(self):
+
+class CatCoursesMatcher(tk.Frame):
+
+    def __init__(self, parent, controller):
+        tk.Frame.__init__(self, parent)
+        label = tk.Label(self, text="CatCourses Matcher")
+        label.grid(column=1, row=1, padx=20, pady=20)
+
+        self.minsize = (1000, 1000)
+        self.student_file_button()
+        self.project_file_button()
+        self.run_button()
+
         self.button = tk.Button(
-            self, text="<- BACK", 
-            command=lambda: __init__.controller.show_frame(StartPage))
+        self, text="<- BACK", 
+            command=lambda: controller.show_frame(StartPage))
         self.button.grid(column=0, row=6, padx=20, pady=10)
+
+    def student_file_button(self):
+        self.button = tk.Button(
+            self, text="Select Student Roster", command=self.student_file_dialog)
+        self.button.grid(column=1, row=2, padx=20, pady=5)
+
+    def student_file_dialog(self):
+        self.student_filename = filedialog.askopenfile(
+            initialdir="/", title="Select Student Roster", filetype=(("Comma-sperated Values", "*.csv"), ("All Files", "*.*")))
+        self.label = tk.Label(self, text=self.student_filename.name)
+        self.label.grid(column=1, row=3, padx=20, pady=0)
+
+    def project_file_button(self):
+        self.button = tk.Button(
+            self, text="Select Project Roster", command=self.project_file_dialog)
+        self.button.grid(column=1, row=4, padx=20, pady=5)
+
+    def project_file_dialog(self):
+        self.project_filename = filedialog.askopenfile(
+            initialdir="/", title="Select Project Roster", filetype=(("Comma-sperated Values", "*.csv"), ("All Files", "*.*")))
+        self.label = tk.Label(self, text=self.project_filename.name)
+        self.label.grid(column=1, row=5, padx=20, pady=0)
+
+    def run_button(self):
+        self.button = tk.Button(self, text="RUN ->")
+        self.button.grid(column=2, row=6, padx=20, pady=10)
+
+        # TODO add run
 
 
 app = I2Gapp()
