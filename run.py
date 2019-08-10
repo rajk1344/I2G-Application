@@ -10,6 +10,9 @@ projects_file_name = 'data/input/projects.csv'
 catcourse_file_name = "data/input/Catcourse_final_roster.csv"
 qualtrics_file_name = "data/input/Student_final_roster_missing.csv"
 matched_students = "data/output/student-project.csv"
+destination_matcher = "data/output/student-project.csv"
+destination_missing_student = "data/output/missing-students.csv"
+destination_contracts = "data/output/contracts/"
 students = []
 students1 = []
 projects = []
@@ -72,10 +75,9 @@ with open(qualtrics_file_name, 'r', encoding='utf-8-sig') as csvfile:
 
         students1.append(Student(row[0], row[2], row[3], row[4], row[9], temp))
 if choice == '1':
-    match(students,projects)
+    match(students,projects,destination_matcher)
 if choice == '2':
-    export_missing_students(list_missing(catcourse,students1))
-"""
+    export_missing_students(list_missing(catcourse,students1),destination_missing_student)
 if choice == '3':
     with open(matched_students, 'r', encoding='utf-8-sig') as csvfile:
         # create csvread obj
@@ -85,5 +87,15 @@ if choice == '3':
         for row in csvread:
             students2.append(Student(row[0], row[1], row[2],row[3],row[4],0))
             projects2.append(Project(row[5],row[6],row[7],row[8],row[9],row[10]))
-    write_project_pdf_contract(students2,projects2)
-"""
+        t = 1
+        p = 1
+        projects2 = list(dict.fromkeys(projects2))
+        project_list = []
+        while t <= 10:
+            student_list = []
+            for student in students2:
+                if str(t) == student.contract:
+                    student_list.append(student)
+            write_project_pdf_contract(student_list, projects2[p],t,destination_contracts)
+            t += 1
+            p += len(student_list)

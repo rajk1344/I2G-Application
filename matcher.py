@@ -61,7 +61,7 @@ def remove_duplicates(student_arr):
     student_arr = temp
 
 
-def match(student_arr, project_arr):
+def match(student_arr, project_arr,destination):
     # sort students by net score
     set_net_score(student_arr)
     sort_by_net_score(student_arr)
@@ -84,4 +84,4 @@ def match(student_arr, project_arr):
                 project_arr[i-1].students.append(student)
                 break
 
-    write_projects_csv(project_arr)
+    write_projects_csv(project_arr,destination)

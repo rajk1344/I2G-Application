@@ -1,9 +1,9 @@
 import csv
 from fpdf import FPDF
 
-def write_projects_csv(project_arr):
+def write_projects_csv(project_arr, destination):
 
-    with open('data/output/student-project.csv', 'w') as f:
+    with open(destination, 'w') as f:
         writer = csv.writer(f)
         writer.writerow(['Timestamp','First Name', 'Last Name', 'Email','Team #','Project ID','Organization Name','Client First Name','Client Last Name','Client Email','Project Title'])
         team_number = 1
@@ -12,15 +12,15 @@ def write_projects_csv(project_arr):
                 writer.writerow([student.timestamp,student.first_name,student.last_name, student.email,team_number,project.project_id,project.client_organization_name,project.client_first_name,project.client_last_name,project.client_email,project.project_title])
             team_number = team_number + 1;
 
-def export_missing_students(missing):
-    with open('data/output/missing-students.csv','w') as f:
+def export_missing_students(missing,destination):
+    with open(destination,'w') as f:
         writer = csv.writer(f)
 
         writer.writerow(['First Name','Last Name','Email'])
         for student in missing:
             writer.writerow([student.first_name,student.last_name,student.email])
 
-def write_project_pdf_contract(project):
+def write_project_pdf_contract(student_list, project,t,destination):
     # creating the pdf document
     pdf = FPDF(format='letter', unit='in')
     pdf.add_page()
@@ -45,7 +45,7 @@ def write_project_pdf_contract(project):
         pdf.cell(columnWidth, th, str(row), border=2)
     pdf.ln(th)
 
-    for student in project.students:
+    for student in student_list:
         pdf.set_font('Times', '', 10.0)
         finalList = [student.timestamp, student.first_name,
                      student.last_name, student.email]
@@ -59,7 +59,7 @@ def write_project_pdf_contract(project):
     # project information table
     projectTable = [['Project ID:', project.project_id],
                     ['Project Title:', project.project_title, ],
-                    ['Team #:', 'needs to be added'],
+                    ['Team #:', str(t)],
                     ['Organization:', project.client_organization_name],
                     ['Primary Contact First Name:', project.client_first_name],
                     ['Primary Contact Last Name:', project.client_last_name],
@@ -82,4 +82,4 @@ University of California Merced, Director of Innovation -> engineering.ucmerced.
     pdf.ln(0.5)
 
     # saves as filename
-    pdf.output('data/output/contracts/2019-July-Fall-CAP-StudentAgreement-Team'+project.project_TeamNumber+'-'+project.client_OrganizationName+'-'+project.project_ID+'.pdf','F')
+    pdf.output(destination+'2019-July-Fall-CAP-StudentAgreement-Team'+str(t)+'-'+project.client_organization_name+'-'+project.project_id+'.pdf','F')
