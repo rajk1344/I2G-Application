@@ -1,6 +1,11 @@
 import tkinter as tk
 from tkinter import filedialog
 
+from file_reader import read_students
+from file_reader import read_projects
+
+from matcher import match
+
 
 class I2Gapp(tk.Tk):
 
@@ -78,23 +83,29 @@ class StudentMatcher(tk.Frame):
 
     def student_file_button(self):
         self.button = tk.Button(
-            self, text="Select Student Roster", command=self.student_file_dialog)
+            self, text="Select Student Roster", 
+            command=self.student_file_dialog)
         self.button.grid(column=1, row=2, padx=20, pady=5)
 
     def student_file_dialog(self):
         self.student_filename = filedialog.askopenfile(
-            initialdir="/", title="Select Student Roster", filetype=(("Comma-sperated Values", "*.csv"), ("All Files", "*.*")))
+            initialdir="/", 
+            title="Select Student Roster", 
+            filetype=(("Comma-sperated Values", "*.csv"), ("All Files", "*.*")))
         self.label = tk.Label(self, text=self.student_filename.name)
         self.label.grid(column=1, row=3, padx=20, pady=0)
 
     def project_file_button(self):
         self.button = tk.Button(
-            self, text="Select Project Roster", command=self.project_file_dialog)
+            self, text="Select Project Roster", 
+            command=self.project_file_dialog)
         self.button.grid(column=1, row=4, padx=20, pady=5)
 
     def project_file_dialog(self):
         self.project_filename = filedialog.askopenfile(
-            initialdir="/", title="Select Project Roster", filetype=(("Comma-sperated Values", "*.csv"), ("All Files", "*.*")))
+            initialdir="/", 
+            title="Select Project Roster", 
+            filetype=(("Comma-sperated Values", "*.csv"), ("All Files", "*.*")))
         self.label = tk.Label(self, text=self.project_filename.name)
         self.label.grid(column=1, row=5, padx=20, pady=0)
 
@@ -105,14 +116,24 @@ class StudentMatcher(tk.Frame):
 
     def output_directory_dialog(self):
         self.output_location = filedialog.askdirectory()
-        self.label = tk.Label(self, text=self.output_location.name)
+        self.label = tk.Label(self, text=self.output_location)
         self.label.grid(column=1, row=7, padx=20, pady=0)
 
     def run_button(self):
-        self.button = tk.Button(self, text="RUN ->")
+        self.button = tk.Button(self, text="RUN ->", command = lambda:self.runner())
         self.button.grid(column=2, row=8, padx=20, pady=10)
 
-        # TODO add run
+    def runner(self):
+        self.students = read_students(self.student_filename.name)
+        self.projects = read_projects(self.project_filename.name)
+        
+        for student in self.students:
+            print(student.first_name)
+
+        for project in self.projects:
+            print(project.project_id)
+        
+        #match(self.students, self.projects, self.output_location)
 
 
 class CatCoursesMatcher(tk.Frame):
