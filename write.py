@@ -1,26 +1,32 @@
 import csv
 from fpdf import FPDF
 
+
 def write_projects_csv(project_arr, destination):
 
-    with open(destination + 'student_csv', 'w') as f:
+    with open(destination + '/student_csv.csv', 'w') as f:
         writer = csv.writer(f)
-        writer.writerow(['Timestamp','First Name', 'Last Name', 'Email','Team #','Project ID','Organization Name','Client First Name','Client Last Name','Client Email','Project Title'])
+        writer.writerow(['Timestamp', 'First Name', 'Last Name', 'Email', 'Team #', 'Project ID',
+                         'Organization Name', 'Client First Name', 'Client Last Name', 'Client Email', 'Project Title'])
         team_number = 1
         for project in project_arr:
             for student in project.students:
-                writer.writerow([student.timestamp,student.first_name,student.last_name, student.email,team_number,project.project_id,project.client_organization_name,project.client_first_name,project.client_last_name,project.client_email,project.project_title])
+                writer.writerow([student.timestamp, student.first_name, student.last_name, student.email, team_number, project.project_id,
+                                 project.client_organization_name, project.client_first_name, project.client_last_name, project.client_email, project.project_title])
             team_number = team_number + 1
 
-def export_missing_students(missing,destination):
-    with open(destination,'w') as f:
+
+def export_missing_students(missing, destination):
+    with open(destination, 'w') as f:
         writer = csv.writer(f)
 
-        writer.writerow(['First Name','Last Name','Email'])
+        writer.writerow(['First Name', 'Last Name', 'Email'])
         for student in missing:
-            writer.writerow([student.first_name,student.last_name,student.email])
+            writer.writerow(
+                [student.first_name, student.last_name, student.email])
 
-def write_project_pdf_contract(student_list, project,t,destination):
+
+def write_project_pdf_contract(student_list, project, t, destination):
     # creating the pdf document
     pdf = FPDF(format='letter', unit='in')
     pdf.add_page()
@@ -82,4 +88,5 @@ University of California Merced, Director of Innovation -> engineering.ucmerced.
     pdf.ln(0.5)
 
     # saves as filename
-    pdf.output(destination+'2019-July-Fall-CAP-StudentAgreement-Team'+str(t)+'-'+project.client_organization_name+'-'+project.project_id+'.pdf','F')
+    pdf.output(destination+'2019-July-Fall-CAP-StudentAgreement-Team'+str(t) +
+               '-'+project.client_organization_name+'-'+project.project_id+'.pdf', 'F')

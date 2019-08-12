@@ -1,10 +1,9 @@
 import tkinter as tk
 from tkinter import filedialog
 
-from file_reader import read_students
-from file_reader import read_projects
-
-from matcher import match
+from file_reader import *
+from missing_student import *
+from matcher import *
 
 
 class I2Gapp(tk.Tk):
@@ -126,14 +125,7 @@ class StudentMatcher(tk.Frame):
     def runner(self):
         self.students = read_students(self.student_filename.name)
         self.projects = read_projects(self.project_filename.name)
-        
-        for student in self.students:
-            print(student.first_name)
-
-        for project in self.projects:
-            print(project.project_id)
-        
-        #match(self.students, self.projects, self.output_location)
+        match(self.students, self.projects, self.output_location)
 
 
 class CatCoursesMatcher(tk.Frame):
@@ -144,7 +136,7 @@ class CatCoursesMatcher(tk.Frame):
         label.grid(column=1, row=1, padx=20, pady=20)
 
         self.minsize = (1000, 1000)
-        self.student_file_button()
+        self.qualtrics_file_button()
         self.catcources_file_button()
         self.output_directory_button()
         self.run_button()
@@ -154,15 +146,15 @@ class CatCoursesMatcher(tk.Frame):
             command=lambda: controller.show_frame(StartPage))
         self.button.grid(column=0, row=8, padx=20, pady=10)
 
-    def student_file_button(self):
+    def qualtrics_file_button(self):
         self.button = tk.Button(
-            self, text="Select Student Roster", command=self.student_file_dialog)
+            self, text="Select Qualtrics Roster", command=self.qualtrics_file_dialog)
         self.button.grid(column=1, row=2, padx=20, pady=5)
 
-    def student_file_dialog(self):
-        self.student_filename = filedialog.askopenfile(
-            initialdir="/", title="Select Student Roster", filetype=(("Comma-sperated Values", "*.csv"), ("All Files", "*.*")))
-        self.label = tk.Label(self, text=self.student_filename.name)
+    def qualtrics_file_dialog(self):
+        self.qualtrics_filename = filedialog.askopenfile(
+            initialdir="/", title="Select Qualtrics Roster", filetype=(("Comma-sperated Values", "*.csv"), ("All Files", "*.*")))
+        self.label = tk.Label(self, text=self.qualtrics_filename.name)
         self.label.grid(column=1, row=3, padx=20, pady=0)
 
     def catcources_file_button(self):
@@ -172,7 +164,7 @@ class CatCoursesMatcher(tk.Frame):
 
     def catcources_file_dialog(self):
         self.catcources_filename = filedialog.askopenfile(
-            initialdir="/", title="Select atcources Roster", filetype=(("Comma-sperated Values", "*.csv"), ("All Files", "*.*")))
+            initialdir="/", title="Select Catcources Roster", filetype=(("Comma-sperated Values", "*.csv"), ("All Files", "*.*")))
         self.label = tk.Label(self, text=self.catcources_filename.name)
         self.label.grid(column=1, row=5, padx=20, pady=0)
 
@@ -190,7 +182,10 @@ class CatCoursesMatcher(tk.Frame):
         self.button = tk.Button(self, text="RUN ->")
         self.button.grid(column=2, row=8, padx=20, pady=10)
 
-        # TODO add run
+    def runner(self):
+        self.qualtrics = read_qualtrix(self.qualtrix_filename.name)
+        self.catcources = read_catcources(self.catcources_filename.name)
+        print(list_missing(catcources, qualtrics))
 
 
 app = I2Gapp()
