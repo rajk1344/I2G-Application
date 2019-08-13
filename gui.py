@@ -186,6 +186,7 @@ class CatCoursesMatcher(tk.Frame):
         self.qualtrics = read_qualtrix(self.qualtrix_filename.name)
         self.catcources = read_catcources(self.catcources_filename.name)
         print(list_missing(catcources, qualtrics))
+        #TODO ask dev on the missing students
 
 
 app = I2Gapp()
