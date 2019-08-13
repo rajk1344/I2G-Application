@@ -4,7 +4,7 @@ from fpdf import FPDF
 
 def write_projects_csv(project_arr, destination):
 
-    with open(destination + '/student_csv.csv', 'w') as f:
+    with open(destination + '/student_csv.csv', 'w', encoding='utf-8-sig') as f:
         writer = csv.writer(f)
         writer.writerow(['Timestamp', 'First Name', 'Last Name', 'Email', 'Team #', 'Project ID',
                          'Organization Name', 'Client First Name', 'Client Last Name', 'Client Email', 'Project Title'])
@@ -17,7 +17,7 @@ def write_projects_csv(project_arr, destination):
 
 
 def export_missing_students(missing, destination):
-    with open(destination, 'w') as f:
+    with open(destination + '/missing_students.csv', 'w', encoding='utf-8-sig') as f:
         writer = csv.writer(f)
 
         writer.writerow(['First Name', 'Last Name', 'Email'])

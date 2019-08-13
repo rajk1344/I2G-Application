@@ -1,6 +1,7 @@
 import csv
 from student import *
 from project import *
+import missing_student
 
 def read_students(file):
     students = []
@@ -43,3 +44,18 @@ def read_projects(file):
                 Project(row[0], row[3], row[4], row[5], row[6], row[9]))
     
     return projects
+
+
+def read_catcources(file):
+    
+    catcourse = []
+
+    with open(file, 'r', encoding='utf-8-sig') as csvfile:
+        # create csvread obj
+        csvread = csv.reader(csvfile)
+        temp = []
+        # populate projects
+        for row in csvread:
+            catcourse.append(Student(0,row[0], row[1], row[2],0,temp))
+
+    return catcourse

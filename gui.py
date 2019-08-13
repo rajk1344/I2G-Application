@@ -175,17 +175,18 @@ class CatCoursesMatcher(tk.Frame):
 
     def output_directory_dialog(self):
         self.output_location = filedialog.askdirectory()
-        self.label = tk.Label(self, text=self.output_location.name)
+        self.label = tk.Label(self, text=self.output_location)
         self.label.grid(column=1, row=7, padx=20, pady=0)
 
     def run_button(self):
-        self.button = tk.Button(self, text="RUN ->")
+        self.button = tk.Button(self, text="RUN ->", command = lambda: self.runner())
         self.button.grid(column=2, row=8, padx=20, pady=10)
 
     def runner(self):
-        self.qualtrics = read_qualtrix(self.qualtrix_filename.name)
+        self.qualtrics = read_students(self.qualtrics_filename.name)
         self.catcources = read_catcources(self.catcources_filename.name)
-        print(list_missing(catcources, qualtrics))
+        
+        export_missing_students(list_missing(self.catcources,self.qualtrics),self.output_location)
         #TODO ask dev on the missing students
 
 
