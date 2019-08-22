@@ -1,4 +1,6 @@
 import csv
+import gspread
+from oauth2client.service_account import ServiceAccountCredentials
 from fpdf import FPDF
 
 
@@ -15,6 +17,21 @@ def write_projects_csv(project_arr, destination):
                                  project.client_organization_name, project.client_first_name, project.client_last_name, project.client_email, project.project_title])
             team_number = team_number + 1
 
+def write_projects_gsheet(project_arr, destination):
+    scope = ['https://spreadsheets.google.com/feeds','https://www.googleapis.com/auth/drive']
+    creds = ServiceAccountCredentials.from_json_keyfile_name('creds.json',scope)
+    client = gspread.authorize(creds)
+    sheet = client.open(destination).sheet1
+    sheet.insert_row(['Timestamp', 'First Name', 'Last Name', 'Email', 'Team #', 'Project ID',
+                     'Organization Name', 'Client First Name', 'Client Last Name', 'Client Email', 'Project Title'],1)
+    team_number = 1
+    index = 3
+    for project in project_arr:
+        for student in project.students:
+            sheet.insert_row([student.timestamp, student.first_name, student.last_name, student.email, team_number, project.project_id,
+                             project.client_organization_name, project.client_first_name, project.client_last_name, project.client_email, project.project_title],index)
+        team_number = team_number + 1
+        index = index + 1
 
 def export_missing_students(missing, destination):
     with open(destination + '/missing_students.csv', 'w', encoding='utf-8-sig') as f:
