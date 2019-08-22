@@ -11,6 +11,7 @@ catcourse_file_name = "data/input/Catcourse_final_roster.csv"
 qualtrics_file_name = "data/input/Student_final_roster_missing.csv"
 matched_students = "data/output/student-project.csv"
 destination_matcher = "data/output/student-project.csv"
+destination_gsheet_matcher = 'students-matched'
 destination_missing_student = "data/output/missing-students.csv"
 destination_contracts = "data/output/contracts/"
 students = []
@@ -75,7 +76,7 @@ with open(qualtrics_file_name, 'r', encoding='utf-8-sig') as csvfile:
 
         students1.append(Student(row[0], row[2], row[3], row[4], row[9], temp))
 if choice == '1':
-    match(students,projects,destination_matcher)
+    match(students,projects,destination_gsheet_matcher)
 if choice == '2':
     export_missing_students(list_missing(catcourse,students1),destination_missing_student)
 if choice == '3':
