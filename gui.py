@@ -95,8 +95,7 @@ class StudentMatcher(tk.Frame):
     def student_file_dialog(self):
         self.student_filename = filedialog.askopenfile(
             initialdir="/",
-            title="Select Student Roster",
-            filetype=(("Comma-sperated Values", "*.csv"), ("All Files", "*.*")))
+            title="Select Student Roster")
         self.label = tk.Label(self, text=self.student_filename.name)
         self.label.grid(column=2, row=3, padx=20, pady=0)
 
@@ -109,8 +108,7 @@ class StudentMatcher(tk.Frame):
     def project_file_dialog(self):
         self.project_filename = filedialog.askopenfile(
             initialdir="/",
-            title="Select Project Roster",
-            filetype=(("Comma-sperated Values", "*.csv"), ("All Files", "*.*")))
+            title="Select Project Roster")
         self.label = tk.Label(self, text=self.project_filename.name)
         self.label.grid(column=2, row=5, padx=20, pady=0)
 
@@ -166,7 +164,7 @@ class CatCoursesMatcher(tk.Frame):
 
     def qualtrics_file_dialog(self):
         self.qualtrics_filename = filedialog.askopenfile(
-            initialdir="/", title="Select Qualtrics Roster", filetype=(("Comma-sperated Values", "*.csv"), ("All Files", "*.*")))
+            initialdir="/", title="Select Qualtrics Roster")
         self.label = tk.Label(self, text=self.qualtrics_filename.name)
         self.label.grid(column=2, row=3, padx=20, pady=0)
 
@@ -177,7 +175,7 @@ class CatCoursesMatcher(tk.Frame):
 
     def catcources_file_dialog(self):
         self.catcources_filename = filedialog.askopenfile(
-            initialdir="/", title="Select Catcources Roster", filetype=(("Comma-sperated Values", "*.csv"), ("All Files", "*.*")))
+            initialdir="/", title="Select Catcources Roster")
         self.label = tk.Label(self, text=self.catcources_filename.name)
         self.label.grid(column=2, row=5, padx=20, pady=0)
 
@@ -234,8 +232,7 @@ class ContractCreator(tk.Frame):
     def master_file_dialog(self):
         self.master_filename = filedialog.askopenfile(
             initialdir="/",
-            title="Select Master Roster",
-            filetype=(("Comma-sperated Values", "*.csv"), ("All Files", "*.*")))
+            title="Select Master Roster")
         self.label = tk.Label(self, text=self.master_filename.name)
         self.label.grid(column=2, row=3, padx=20, pady=0)
 
@@ -262,3 +259,5 @@ class ContractCreator(tk.Frame):
 
 app = I2Gapp()
 app.mainloop()
+
+#filetype=(("Comma-sperated Values", "*.csv"), ("All Files", "*.*"))
