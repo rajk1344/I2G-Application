@@ -30,8 +30,8 @@ def write_projects_gsheet(project_arr, destination):
         for student in project.students:
             sheet.insert_row([student.timestamp, student.first_name, student.last_name, student.email, team_number, project.project_id,
                              project.client_organization_name, project.client_first_name, project.client_last_name, project.client_email, project.project_title],index)
+            index = index + 1
         team_number = team_number + 1
-        index = index + 1
 
 def export_missing_students(missing, destination):
     with open(destination + '/missing_students.csv', 'w', encoding='utf-8-sig') as f:
