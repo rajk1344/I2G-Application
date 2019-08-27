@@ -28,14 +28,14 @@ def read_students(file):
                     temp.append(1)
 
             students.append(Student(row[0], row[2], row[3], row[4], row[9], temp))
-    
+
     return students
 
-    
+
 def read_projects(file):
-    
+
     projects = []
-    
+
     with open(file, 'r', encoding='utf-8-sig') as csvfile:
         # create csvread obj
         csvread = csv.reader(csvfile)
@@ -43,12 +43,12 @@ def read_projects(file):
         for row in csvread:
             projects.append(
                 Project(row[0], row[3], row[4], row[5], row[6], row[9]))
-    
+
     return projects
 
 
 def read_catcources(file):
-    
+
     catcourse = []
 
     with open(file, 'r', encoding='utf-8-sig') as csvfile:
@@ -57,7 +57,7 @@ def read_catcources(file):
         temp = []
         # populate projects
         for row in csvread:
-            catcourse.append(Student(0,row[0], row[1], row[2],0,temp))
+            catcourse.append(Student(0,row[0], 0, row[1],0,temp))
 
     return catcourse
 
