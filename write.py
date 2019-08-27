@@ -33,12 +33,18 @@ def write_projects_gsheet(project_arr, destination):
             index = index + 1
         team_number = team_number + 1
 
-def export_missing_students(missing, destination):
-    with open(destination + '/missing_students.csv', 'w', encoding='utf-8-sig') as f:
+def export_missing_students(qualtrics, catcourse, destination):
+    with open(destination, 'w', encoding='utf-8-sig') as f:
         writer = csv.writer(f)
-
-        writer.writerow(['First Name', 'Last Name', 'Email'])
-        for student in missing:
+        writer.writerow(['Students who have not finished qualtrics form'])
+        writer.writerow(['First Name', 'Last Name', 'Email/UcmNetID'])
+        for student in qualtrics:
+            writer.writerow(
+                [student.first_name, student.last_name, student.email])
+        writer.writerow('\n')
+        writer.writerow(['Students who are not in catcourse roster'])
+        writer.writerow(['First Name', 'Last Name', 'Email/UcmNetID'])
+        for student in catcourse:
             writer.writerow(
                 [student.first_name, student.last_name, student.email])
 

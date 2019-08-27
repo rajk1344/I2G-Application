@@ -197,8 +197,8 @@ class CatCoursesMatcher(tk.Frame):
     def runner(self):
         self.qualtrics = read_students(self.qualtrics_filename.name)
         self.catcources = read_catcources(self.catcources_filename.name)
-        export_missing_students(list_missing(
-            self.catcources, self.qualtrics), self.output_location)
+        qualtrics, catcourse = list_missing(self.catcources, self.qualtrics)
+        export_missing_students(qualtrics, catcourse, self.output_location)
         messagebox.showinfo("Title", "Done")
 
 

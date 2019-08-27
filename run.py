@@ -54,7 +54,7 @@ with open(catcourse_file_name, 'r', encoding='utf-8-sig') as csvfile:
     temp = []
     # populate projects
     for row in csvread:
-        catcourse.append(Student(0,row[0], row[1], row[2],0,temp))
+        catcourse.append(Student(0,row[0],0, row[1],0,temp))
 with open(qualtrics_file_name, 'r', encoding='utf-8-sig') as csvfile:
     # create csvread obj
     csvread = csv.reader(csvfile)
@@ -78,7 +78,8 @@ with open(qualtrics_file_name, 'r', encoding='utf-8-sig') as csvfile:
 if choice == '1':
     match(students,projects,destination_gsheet_matcher)
 if choice == '2':
-    export_missing_students(list_missing(catcourse,students1),destination_missing_student)
+    qualtrics, catcourse = list_missing(catcourse,students1)
+    export_missing_students(qualtrics, catcourse,destination_missing_student)
 if choice == '3':
     with open(matched_students, 'r', encoding='utf-8-sig') as csvfile:
         # create csvread obj
