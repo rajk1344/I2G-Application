@@ -6,7 +6,7 @@ from fpdf import FPDF
 
 def write_projects_csv(project_arr, destination):
 
-    with open(destination + '/student_csv.csv', 'w', encoding='utf-8-sig') as f:
+    with open(destination + '/student_csv.csv', 'w', encoding='utf-8-sig', newline = '') as f:
         writer = csv.writer(f)
         writer.writerow(['Timestamp', 'First Name', 'Last Name', 'Email', 'Team #', 'Project ID',
                          'Organization Name', 'Client First Name', 'Client Last Name', 'Client Email', 'Project Title'])
@@ -34,7 +34,7 @@ def write_projects_gsheet(project_arr, destination):
         team_number = team_number + 1
 
 def export_missing_students(qualtrics, catcourse, destination):
-    with open(destination + '/missing_student', 'w', encoding='utf-8-sig') as f:
+    with open(destination + '/missing_student.csv', 'w', encoding='utf-8-sig', newline = '') as f:
         writer = csv.writer(f)
         writer.writerow(['Students who have not finished qualtrics form'])
         writer.writerow(['First Name', 'Last Name', 'Email/UcmNetID'])
