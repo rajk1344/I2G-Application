@@ -128,7 +128,7 @@ class StudentMatcher(tk.Frame):
         self.button.grid(column=3, row=8, padx=20, pady=10)
 
     def runner(self):
-        self.students = read_students(self.student_filename.name)
+        self.students, bad_data = read_students(self.student_filename.name)
         self.projects = read_projects(self.project_filename.name)
         match(self.students, self.projects, self.output_location)
         messagebox.showinfo("Title", "Done")
@@ -195,10 +195,10 @@ class CatCoursesMatcher(tk.Frame):
         self.button.grid(column=3, row=8, padx=20, pady=10)
 
     def runner(self):
-        self.qualtrics = read_students(self.qualtrics_filename.name)
+        self.qualtrics, bad_data = read_students(self.qualtrics_filename.name)
         self.catcources = read_catcources(self.catcources_filename.name)
         qualtrics, catcourse = list_missing(self.catcources, self.qualtrics)
-        export_missing_students(qualtrics, catcourse, self.output_location)
+        export_missing_students(qualtrics, catcourse, bad_data, self.output_location)
         messagebox.showinfo("Title", "Done")
 
 

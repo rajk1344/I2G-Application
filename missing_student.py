@@ -1,7 +1,6 @@
 import csv
 from student import *
 
-
 def list_missing(catcourse, qualtrics):
     t = 0
     missing_qualtrics = []

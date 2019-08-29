@@ -33,7 +33,7 @@ def write_projects_gsheet(project_arr, destination):
             index = index + 1
         team_number = team_number + 1
 
-def export_missing_students(qualtrics, catcourse, destination):
+def export_missing_students(qualtrics, catcourse, bad_data, destination):
     with open(destination + '/missing_student.csv', 'w', encoding='utf-8-sig', newline = '') as f:
         writer = csv.writer(f)
         writer.writerow(['Students who have not finished qualtrics form'])
@@ -47,7 +47,12 @@ def export_missing_students(qualtrics, catcourse, destination):
         for student in catcourse:
             writer.writerow(
                 [student.first_name, student.last_name, student.email])
-
+        writer.writerow('\n')
+        writer.writerow(['Bad Data'])
+        writer.writerow(['First Name', 'Last Name', 'Email/UcmNetID'])
+        for student in bad_data:
+            writer.writerow(
+                [student.first_name, student.last_name, student.email])
 
 def write_project_pdf_contract(student_list, project, t, destination):
     # creating the pdf document

@@ -6,12 +6,13 @@ from missing_student import *
 
 def read_students(file):
     students = []
-
+    bad_data = []
     # read csv files
     with open(file, 'r', encoding='utf-8-sig') as csvfile:
         # create csvread obj
         csvread = csv.reader(csvfile)
         # populate students with Student obj
+
         for row in csvread:
             temp = []
             # convert string preferances into numericals
@@ -24,12 +25,17 @@ def read_students(file):
                     temp.append(3)
                 elif pref == 'Probably not':
                     temp.append(2)
-                else:
+                elif pref == 'No thanks':
                     temp.append(1)
+                else:
+                    temp.append(-1)
 
-            students.append(Student(row[0], row[2], row[3], row[4], row[9], temp))
+            if row[1]==str(1):
+                students.append(Student(row[0], row[2], row[3], row[4], row[9], temp))
+            else:
+                bad_data.append(Student(0, row[2], row[3], row[4], 0, 0))
 
-    return students
+    return students, bad_data
 
 
 def read_projects(file):
@@ -73,7 +79,7 @@ def read_matched_students(file, output):
         temp = []
         # populate projects
         for row in csvread:
-            students2.append(Student(row[0], row[1], row[2],row[3],row[4],0))
+            students2.append(Student(row[0], row[1 ], row[2],row[3],row[4],0))
             projects2.append(Project(row[5],row[6],row[7],row[8],row[9],row[10]))
         t = 1
         p = 1
