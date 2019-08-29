@@ -2,3 +2,4 @@ gui filter=lfs diff=lfs merge=lfs -text
 /exe filter=lfs diff=lfs merge=lfs -text
 /Users/dev/Desktop/side_project/I2G-Application/exe filter=lfs diff=lfs merge=lfs -text
 exe/I2G-Application filter=lfs diff=lfs merge=lfs -text
+mac/gui filter=lfs diff=lfs merge=lfs -text
