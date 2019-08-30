@@ -56,6 +56,7 @@ def class_full(project):
     for p in project:
         if len(project.students) < project.size:
             full = False
+    return full
 
 
 def remove_duplicates(student_arr):
@@ -86,10 +87,13 @@ def match(student_arr, project_arr,destination):
     for student in student_arr:
         sort_by_preferance(student)
         for i in student.sorted_project_preferances:
-            if space_available(project_arr[i-1]):
-                project_arr[i-1].students.append(student)
-                break
-            elif class_full(project_arr):
-                project_arr[i-1].students.append(student)
+
+            if i != -1:    
+                if space_available(project_arr[i-1]) :
+                    project_arr[i-1].students.append(student)
+                    break
+                elif class_full(project_arr):
+                    project_arr[i-1].students.append(student)
+                    break
 
     write_projects_csv(project_arr, destination)

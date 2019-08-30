@@ -130,6 +130,15 @@ class StudentMatcher(tk.Frame):
     def runner(self):
         self.students, bad_data = read_students(self.student_filename.name)
         self.projects = read_projects(self.project_filename.name)
+
+        for student in self.students:
+            print(student.first_name)
+            print(student.preferances)
+            print("\n")
+
+        for project in self.projects:
+            print(project.project_id + "\t" + project.project_title)
+
         match(self.students, self.projects, self.output_location)
         messagebox.showinfo("Title", "Done")
 
