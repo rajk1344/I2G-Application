@@ -45,11 +45,17 @@ def sort_by_preferance(student):
     student.sorted_project_preferances = sorted_project_preferances
 
 
-def space_available(project):
+def space_available(project):       
     if len(project.students) < project.size:
         return True
     else:
         return False
+
+def class_full(project):
+    full = True
+    for p in project:
+        if len(project.students) < project.size:
+            full = False
 
 
 def remove_duplicates(student_arr):
@@ -70,7 +76,7 @@ def match(student_arr, project_arr,destination):
     remove_duplicates(student_arr)
 
     # find and apply size of each project
-    size = math.ceil(float(len(student_arr))/float(len(project_arr)))
+    size = 3
 
     for project in project_arr:
         project.size = size
@@ -83,5 +89,7 @@ def match(student_arr, project_arr,destination):
             if space_available(project_arr[i-1]):
                 project_arr[i-1].students.append(student)
                 break
+            elif class_full(project_arr):
+                project_arr[i-1].students.append(student)
 
     write_projects_csv(project_arr, destination)
