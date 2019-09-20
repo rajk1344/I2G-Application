@@ -5,8 +5,9 @@ from student import *
 from missing_student import *
 from write import *
 
+
 students_file_name = "data/input/Student_final_roster.csv"
-projects_file_name = 'data/input/projects.csv'
+projects_file_name = 'data/input/projects_test.csv'
 catcourse_file_name = "data/input/Catcourse_final_roster.csv"
 qualtrics_file_name = "data/input/Student_final_roster_missing.csv"
 matched_students = "data/output/student-project.csv"
@@ -101,3 +102,6 @@ if choice == '3':
             write_project_pdf_contract(student_list, projects2[p],t,destination_contracts)
             t += 1
             p += len(student_list)
+
+if choice == '4':
+    write_project_information('source','destination')

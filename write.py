@@ -2,7 +2,7 @@ import csv
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 from fpdf import FPDF
-
+import pprint
 
 def write_projects_csv(project_arr, destination):
 
@@ -32,6 +32,30 @@ def write_projects_gsheet(project_arr, destination):
                              project.client_organization_name, project.client_first_name, project.client_last_name, project.client_email, project.project_title],index)
             index = index + 1
         team_number = team_number + 1
+
+
+def write_project_information(source, destination):
+    scope = ['https://spreadsheets.google.com/feeds','https://www.googleapis.com/auth/drive']
+    creds = ServiceAccountCredentials.from_json_keyfile_name('creds.json',scope)
+    client = gspread.authorize(creds)
+    source_sheet = client.open(source).sheet1
+    destination_sheet = client.open(destination).sheet1
+    source_row = 2
+    source_col = 3
+    while source_sheet.cell(source_row, source_col).value != "":
+        source_project_id = source_sheet.cell(source_row, source_col).value
+        dest_row = 4 
+        dest_col = 1
+        while destination_sheet.cell(dest_row, dest_col).value != source_project_id:
+            dest_row = dest_row + 1
+        i = 1
+        k = 22
+        while i <= 4:
+            data = source_sheet.cell(source_row,source_col+i).value
+            destination_sheet.update_cell(dest_row,dest_col+k,data)
+            k = k+1
+            i = i+1
+        source_row = source_row+1
 
 def export_missing_students(qualtrics, catcourse, bad_data, destination):
     with open(destination + '/missing_student.csv', 'w', encoding='utf-8-sig', newline = '') as f:
