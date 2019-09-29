@@ -1,30 +1,32 @@
 import csv
 from student import *
+from new_student import *
 
 def list_missing(catcourse, qualtrics):
-    t = 0
-    missing_qualtrics = []
-    missing_catcourse = []
+    #Checking whether a student has not at all done qualtrics
+    missing_student = [] 
+    student_exists = False
     for student in catcourse:
-        cat_email = student.email
-        for stud in qualtrics:
-            qual_email = stud.email[0:len(stud.email)-13]
-            if qual_email == cat_email:
-                t = 1
-        if t == 0:
-            missing_qualtrics.append(Student(0, student.first_name,
-                                   student.last_name, student.email, 0, 0))
-        t = 0
-    t = 0
+        catcourse_email = student.email
+        for qualtrics_student in qualtrics:
+            if qualtrics_student.email[0:(len(qualtrics.email)-13)] == catcourse_email:
+                student_exists = True
+        if (student_exists == False):
+            missing_student.append(student)
+    
+    # Pre-clean qualtrics data (Differentiating incomplete from complete)
+    incomplete_data = []
+    clean_data = []
     for student in qualtrics:
-        qualtrics_email = student.email[0:len(student.email)-13]
-        for stud in catcourse:
-            cat_email = stud.email
-            if qualtrics_email == cat_email:
-                t = 1
-        if t == 0:
-            missing_catcourse.append(Student(0, student.first_name,
-                                   student.last_name, student.email, 0, 0))
-        t = 0
+        if student[1] != str(1):
+            incomplete_data.append(student)
+        else:
+            clean_data.append(student)
+    
+    # Looking for agreement and non-agreement students
+    disagreed_students = []
+    for student in qualtrics:
+        if student.agreement != "I agree":
+            disagreed_students.append(student)
 
-    return missing_qualtrics,missing_catcourse
+    return missing_student, incomplete_data, clean_data, disagreed_students
