@@ -9,7 +9,7 @@ def list_missing(catcourse, qualtrics):
     for student in catcourse:
         catcourse_email = student.email
         for qualtrics_student in qualtrics:
-            if qualtrics_student.email[0:(len(qualtrics.email)-13)] == catcourse_email:
+            if qualtrics_student.email[0:(len(qualtrics_student.email)-13)] == catcourse_email:
                 student_exists = True
         if (student_exists == False):
             missing_student.append(student)
@@ -18,7 +18,7 @@ def list_missing(catcourse, qualtrics):
     incomplete_data = []
     clean_data = []
     for student in qualtrics:
-        if student[1] != str(1):
+        if student.status != str(1):
             incomplete_data.append(student)
         else:
             clean_data.append(student)

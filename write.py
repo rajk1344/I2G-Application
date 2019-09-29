@@ -57,27 +57,27 @@ def write_project_information(source, destination):
             i = i+1
         source_row = source_row+1
 
-def export_missing_students(missing_student,, destination):
+def export_missing_students(missing_student,incomplete_data, disagreed_students, destination):
     with open(destination + '/missing_student.csv', 'w', encoding='utf-8-sig', newline = '') as f:
         writer = csv.writer(f)
         # Writing missing students information
         writer.writerow(['Students who have not finished qualtrics form'])
         writer.writerow(['First Name', 'Last Name', 'Email/UcmNetID'])
-        for student in qualtrics:
+        for student in missing_student:
             writer.writerow(
                 [student.first_name, student.last_name, student.email])
         writer.writerow('\n')
         # Writing Incomplete registration students information 
         writer.writerow(['Students who have incomplete qualtrics data'])
         writer.writerow(['First Name', 'Last Name', 'Email/UcmNetID'])
-        for student in catcourse:
+        for student in incomplete_data:
             writer.writerow(
                 [student.first_name, student.last_name, student.email])
         writer.writerow('\n')
         # Writing Disagreed students
         writer.writerow(['Students who have disagreed'])
         writer.writerow(['First Name', 'Last Name', 'Email/UcmNetID'])
-        for student in bad_data:
+        for student in disagreed_students:
             writer.writerow(
                 [student.first_name, student.last_name, student.email])
 """
