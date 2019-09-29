@@ -57,27 +57,38 @@ def write_project_information(source, destination):
             i = i+1
         source_row = source_row+1
 
-def export_missing_students(qualtrics, catcourse, bad_data, destination):
+def export_missing_students(missing_student,incomplete_data, disagreed_students, destination):
     with open(destination + '/missing_student.csv', 'w', encoding='utf-8-sig', newline = '') as f:
         writer = csv.writer(f)
+        # Writing missing students information
         writer.writerow(['Students who have not finished qualtrics form'])
         writer.writerow(['First Name', 'Last Name', 'Email/UcmNetID'])
+        for student in missing_student:
+            writer.writerow(
+                [student.first_name, student.last_name, student.email])
+        writer.writerow('\n')
+        # Writing Incomplete registration students information 
+        writer.writerow(['Students who have incomplete qualtrics data'])
+        writer.writerow(['First Name', 'Last Name', 'Email/UcmNetID'])
+        for student in incomplete_data:
+            writer.writerow(
+                [student.first_name, student.last_name, student.email])
+        writer.writerow('\n')
+        # Writing Disagreed students
+        writer.writerow(['Students who have disagreed'])
+        writer.writerow(['First Name', 'Last Name', 'Email/UcmNetID'])
+        for student in disagreed_students:
+            writer.writerow(
+                [student.first_name, student.last_name, student.email])
+"""
+def write_clean_data(clean_data, destination):
+    with open(destination + '/missing_student.csv', 'w', encoding='utf-8-sig', newline = '') as f:
+        writer = csv.writer(f)
+        writer.writerow(['Timestamp', '''First Name', 'Last Name', 'Email/UcmNetID'])
         for student in qualtrics:
             writer.writerow(
                 [student.first_name, student.last_name, student.email])
-        writer.writerow('\n')
-        writer.writerow(['Students who are not in catcourse roster'])
-        writer.writerow(['First Name', 'Last Name', 'Email/UcmNetID'])
-        for student in catcourse:
-            writer.writerow(
-                [student.first_name, student.last_name, student.email])
-        writer.writerow('\n')
-        writer.writerow(['Bad Data'])
-        writer.writerow(['First Name', 'Last Name', 'Email/UcmNetID'])
-        for student in bad_data:
-            writer.writerow(
-                [student.first_name, student.last_name, student.email])
-
+"""
 def write_project_pdf_contract(student_list, project, t, destination):
     # creating the pdf document
     pdf = FPDF(format='letter', unit='in')

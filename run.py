@@ -4,16 +4,18 @@ from project import *
 from student import *
 from missing_student import *
 from write import *
+from new_student import *
 
 
 students_file_name = "data/input/Student_final_roster.csv"
+test_data = "data/input/test_roster.csv"
 projects_file_name = 'data/input/projects_test.csv'
 catcourse_file_name = "data/input/Catcourse_final_roster.csv"
 qualtrics_file_name = "data/input/Student_final_roster_missing.csv"
 matched_students = "data/output/student-project.csv"
 destination_matcher = "data/output/student-project.csv"
 destination_gsheet_matcher = 'students-matched'
-destination_missing_student = "data/output/missing-students.csv"
+destination_missing_student = "data/output"
 destination_contracts = "data/output/contracts/"
 students = []
 students1 = []
@@ -42,7 +44,7 @@ with open(students_file_name, 'r', encoding= 'utf-8-sig') as csvfile:
             else:
                 temp.append(1)
 
-        students.append(Student(row[0], row[2], row[3], row[4], row[9], temp))
+        students.append(new_Student(row[0], row[1], row[2], row[3], row[4], row[9], temp))
 with open(projects_file_name, 'r', encoding='utf-8-sig') as csvfile:
     # create csvread obj
     csvread = csv.reader(csvfile)
@@ -56,7 +58,7 @@ with open(catcourse_file_name, 'r', encoding='utf-8-sig') as csvfile:
     # populate projects
     for row in csvread:
         catcourse.append(Student(0,row[0],0, row[1],0,temp))
-with open(qualtrics_file_name, 'r', encoding='utf-8-sig') as csvfile:
+with open(test_data, 'r', encoding= 'utf-8-sig') as csvfile:
     # create csvread obj
     csvread = csv.reader(csvfile)
     # populate students with Student obj
@@ -75,12 +77,12 @@ with open(qualtrics_file_name, 'r', encoding='utf-8-sig') as csvfile:
             else:
                 temp.append(1)
 
-        students1.append(Student(row[0], row[2], row[3], row[4], row[9], temp))
+        students1.append(new_Student(row[0], row[1], row[2], row[3], row[4], row[9], temp))
 if choice == '1':
     match(students,projects,destination_gsheet_matcher)
 if choice == '2':
-    qualtrics, catcourse = list_missing(catcourse,students1)
-    export_missing_students(qualtrics, catcourse,destination_missing_student)
+    missing_student, incomplete_data, clean_data, disagreed_students = list_missing(catcourse,students1)
+    export_missing_students(missing_student, incomplete_data, disagreed_students,destination_missing_student)
 if choice == '3':
     with open(matched_students, 'r', encoding='utf-8-sig') as csvfile:
         # create csvread obj
