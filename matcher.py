@@ -54,7 +54,7 @@ def space_available(project):
 def class_full(project):
     full = True
     for p in project:
-        if len(project.students) < project.size:
+        if len(p.students) < p.size:
             full = False
     return full
 
@@ -96,4 +96,4 @@ def match(student_arr, project_arr,destination):
                     project_arr[i-1].students.append(student)
                     break
 
-    write_projects_csv(project_arr, destination)
+    write_master(project_arr, destination)
