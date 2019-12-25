@@ -93,3 +93,20 @@ def read_matched_students(file, output):
             write_project_pdf_contract(student_list, projects2[p],t, output)
             t += 1
             p += len(student_list)
+#This function attempts to read the projects from projects log and write it in another gsheet
+def get_projects_semester(source,destination,semester):
+    scope = ['https://spreadsheets.google.com/feeds','https://www.googleapis.com/auth/drive']
+    creds = ServiceAccountCredentials.from_json_keyfile_name('creds.json',scope)
+    client = gspread.authorize(creds)
+    source_sheet = client.open(source).sheet1
+    destination_sheet = client.open(destination).sheet1
+    semesters = source_sheet.findall(semester)
+    team = 1
+    destination_sheet.append_row(['Project ID','Team Number','Time Submitted','Organization Name','Primary Contact First Name','Primary Contact Last Name','Primary Contact Email','Project Title','Background','Problem','Objective'])
+    for i in range(0,len(semesters)):
+        row = semesters[i].row
+        destination_sheet.append_row([source_sheet.cell(row,1).value,team,'',source_sheet.cell(row,10).value,source_sheet.cell(row,11).value,source_sheet.cell(row,12).value,source_sheet.cell(row,16).value,source_sheet.cell(row,17).value,source_sheet.cell(row,18).value,source_sheet.cell(row,19).value,source_sheet.cell(row,20).value])
+        team = team + 1
+    time.sleep(10)
+
+
