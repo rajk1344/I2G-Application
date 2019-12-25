@@ -1,5 +1,6 @@
 import csv
 from student import *
+from new_student import *
 from project import *
 from write import *
 from missing_student import *
@@ -37,6 +38,34 @@ def read_students(file):
 
     return students, bad_data
 
+# This definition is for testing purposes for the catcours-qualtrics students
+def read_students_new(file):
+    students = []
+    # read csv files
+    with open(file, 'r', encoding='utf-8-sig') as csvfile:
+        # create csvread obj
+        csvread = csv.reader(csvfile)
+        # populate students with Student obj
+
+        for row in csvread:
+            temp = []
+            # convert string preferances into numericals
+            for pref in row[14:]:
+                if pref == 'Definitely yes':
+                    temp.append(5)
+                elif pref == 'Probably yes':
+                    temp.append(4)
+                elif pref == 'Maybe':
+                    temp.append(3)
+                elif pref == 'Probably not':
+                    temp.append(2)
+                elif pref == 'No thanks':
+                    temp.append(1)
+                else:
+                    temp.append(-1)
+                students.append(new_Student(row[0], row[1], row[2], row[3], row[4], row[9], temp))
+
+    return students
 
 def read_projects(file):
 
