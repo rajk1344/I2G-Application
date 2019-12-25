@@ -7,10 +7,10 @@ from write import *
 from new_student import *
 
 
-students_file_name = "data/input/Student_final_roster.csv"
-test_data = "data/input/test_roster.csv"
-projects_file_name = 'data/input/projects_test.csv'
-catcourse_file_name = "data/input/Catcourse_final_roster.csv"
+students_file_name = "data/input/Test_data/student_data1.csv"
+test_data = "data/input/Test_data/student_data1.csv"
+projects_file_name = 'data/input/Test_data/projects.csv'
+catcourse_file_name = "data/input/Test_data/roster.csv"
 qualtrics_file_name = "data/input/Student_final_roster_missing.csv"
 matched_students = "data/output/student-project.csv"
 destination_matcher = "data/output/student-project.csv"
