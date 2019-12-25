@@ -5,8 +5,8 @@ from new_student import *
 def list_missing(catcourse, qualtrics):
     #Checking whether a student has not at all done qualtrics
     missing_student = [] 
-    student_exists = False
     for student in catcourse:
+        student_exists = False
         catcourse_email = student.email
         for qualtrics_student in qualtrics:
             if qualtrics_student.email[0:(len(qualtrics_student.email)-13)] == catcourse_email:
@@ -19,7 +19,12 @@ def list_missing(catcourse, qualtrics):
     clean_data = []
     for student in qualtrics:
         if student.status != str(1):
-            incomplete_data.append(student)
+            duplicate_entry = False
+            for dup_student in qualtrics:
+                if dup_student.email == student.email and dup_student.status == str(1):
+                    duplicate_entry = True
+            if duplicate_entry == False:
+                incomplete_data.append(student)
         else:
             clean_data.append(student)
     
