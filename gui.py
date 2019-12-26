@@ -221,11 +221,12 @@ class ContractCreator(tk.Frame):
         self.master_file_button()
         self.output_directory_button()
         self.run_button()
+        self.output_file()
 
         self.button = tk.Button(
             self, text="<- BACK",
             command=lambda: controller.show_frame(StartPage))
-        self.button.grid(column=1, row=8, padx=20, pady=10)
+        self.button.grid(column=1, row=10, padx=20, pady=10)
 
         self.grid_rowconfigure(0, weight=1)
         self.grid_rowconfigure(9, weight=1)
@@ -255,13 +256,21 @@ class ContractCreator(tk.Frame):
         self.label = tk.Label(self, text=self.output_location)
         self.label.grid(column=2, row=7, padx=20, pady=0)
 
+    def output_file(self):
+        self.filename = tk.StringVar()
+        self.output_name = tk.Entry(self, textvariable = self.filename)
+        self.output_name.insert(0, '2020-January-SPRING-CAP-StudentAgreement-Team')
+        self.label = tk.Label(self, text='File Name \n (team information will be added after this name)')
+        self.output_name.grid(column=2, row=9, padx=20, pady=10)
+        self.label.grid(column=2, row=8, padx=20, pady=0)
+
     def run_button(self):
         self.button = tk.Button(self, text="RUN ->",
                                 command=lambda: self.runner())
-        self.button.grid(column=3, row=8, padx=20, pady=10)
+        self.button.grid(column=3, row=10, padx=20, pady=10)
 
     def runner(self):
-        read_matched_students(self.master_filename.name, self.output_location)
+        read_matched_students(self.master_filename.name, self.output_location + '/' +self.filename.get())
         messagebox.showinfo("Title", "Done")
         pass
 

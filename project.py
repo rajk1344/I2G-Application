@@ -6,6 +6,7 @@ class Project(object):
         self.client_last_name = client_last_name
         self.client_email = client_email
         self.project_title = project_title
-
-    def print_project_info(project):
-        pass
+        self.background = ''
+        self.problem = ''
+        self.objectives = ''
+        self.summary_link = ''

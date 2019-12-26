@@ -3,6 +3,7 @@ import math
 import csv
 
 from write import *
+from team import *
 
 # matcher methods
 
@@ -54,7 +55,7 @@ def space_available(project):
 def class_full(project):
     full = True
     for p in project:
-        if len(project.students) < project.size:
+        if len(p.students) < p.size:
             full = False
     return full
 
@@ -97,3 +98,34 @@ def match(student_arr, project_arr,destination):
                     break
 
     write_projects_csv(project_arr, destination)
+    write_master_xlsx(project_arr)
+
+def match_test(student_arr, project_arr,destination, size):
+    # sort students by net score
+    set_net_score(student_arr)
+    sort_by_net_score(student_arr)
+
+    # remove duplictes
+    remove_duplicates(student_arr)
+
+    # find and apply size of each project
+    teams = []
+    
+    for project in project_arr:
+        teams.append = Team(project, [])    
+
+    # populate students in project based of preferances
+    for student in student_arr:
+        sort_by_preferance(student)
+        for i in student.sorted_project_preferances:
+
+            if i != -1:    
+                if space_available(project_arr[i-1]) :
+                    project_arr[i-1].students.append(student)
+                    break
+                elif class_full(project_arr):
+                    project_arr[i-1].students.append(student)
+                    break
+
+    write_projects_csv(project_arr, destination)
+    write_master_xlsx(project_arr)
