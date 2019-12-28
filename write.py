@@ -152,14 +152,8 @@ def write_project_information(source, destination):
             i = i+1
         source_row = source_row+1
 
-<<<<<<< HEAD
 def export_missing_students(missing_student,incomplete_data, disagreed_students, destination):
     with open(destination + '/missing_student.csv', 'w', encoding='utf-8-sig', newline = '') as f:
-=======
-
-def export_missing_students(qualtrics, catcourse, bad_data, destination):
-    with open(destination + '/missing_student.csv', 'w', encoding='utf-8-sig', newline='') as f:
->>>>>>> 362b8f2d468ff055faeeffb1b3cca1260205b17d
         writer = csv.writer(f)
         # Writing missing students information
         writer.writerow(['Students who have not finished qualtrics form'])
@@ -181,7 +175,6 @@ def export_missing_students(qualtrics, catcourse, bad_data, destination):
         for student in disagreed_students:
             writer.writerow(
                 [student.first_name, student.last_name, student.email])
-<<<<<<< HEAD
 """
 def write_clean_data(clean_data, destination):
     with open(destination + '/missing_student.csv', 'w', encoding='utf-8-sig', newline = '') as f:
@@ -191,10 +184,6 @@ def write_clean_data(clean_data, destination):
             writer.writerow(
                 [student.first_name, student.last_name, student.email])
 """
-=======
-
-
->>>>>>> 362b8f2d468ff055faeeffb1b3cca1260205b17d
 def write_project_pdf_contract(student_list, project, t, destination):
     # creating the pdf document
     pdf = FPDF(format='letter', unit='in')
