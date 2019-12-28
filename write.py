@@ -93,7 +93,9 @@ def write_master_xlsx(project_arr):
     #     team_number = team_number + 1
     workbook.close()
 
-
+"""
+This function writes projects to CSV file
+"""
 def write_projects_csv(project_arr, destination):
 
     with open(destination + '/student_csv.csv', 'w', encoding='utf-8-sig', newline='') as f:
@@ -107,7 +109,7 @@ def write_projects_csv(project_arr, destination):
                                  project.client_organization_name, project.client_first_name, project.client_last_name, project.client_email, project.project_title])
             team_number = team_number + 1
 
-
+#This function writes project to google sheet
 def write_projects_gsheet(project_arr, destination):
     scope = ['https://spreadsheets.google.com/feeds',
              'https://www.googleapis.com/auth/drive']
@@ -126,7 +128,7 @@ def write_projects_gsheet(project_arr, destination):
             index = index + 1
         team_number = team_number + 1
 
-
+#This function writes project information to projects log
 def write_project_information(source, destination):
     scope = ['https://spreadsheets.google.com/feeds',
              'https://www.googleapis.com/auth/drive']
@@ -152,6 +154,7 @@ def write_project_information(source, destination):
             i = i+1
         source_row = source_row+1
 
+#This function exports the missing students to a CSV file
 def export_missing_students(missing_student,incomplete_data, disagreed_students, destination):
     with open(destination + '/missing_student.csv', 'w', encoding='utf-8-sig', newline = '') as f:
         writer = csv.writer(f)
@@ -175,15 +178,8 @@ def export_missing_students(missing_student,incomplete_data, disagreed_students,
         for student in disagreed_students:
             writer.writerow(
                 [student.first_name, student.last_name, student.email])
-"""
-def write_clean_data(clean_data, destination):
-    with open(destination + '/missing_student.csv', 'w', encoding='utf-8-sig', newline = '') as f:
-        writer = csv.writer(f)
-        writer.writerow(['Timestamp', '''First Name', 'Last Name', 'Email/UcmNetID'])
-        for student in qualtrics:
-            writer.writerow(
-                [student.first_name, student.last_name, student.email])
-"""
+
+#This function generates PDF contracts
 def write_project_pdf_contract(student_list, project, t, destination):
     # creating the pdf document
     pdf = FPDF(format='letter', unit='in')

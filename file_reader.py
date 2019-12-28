@@ -129,6 +129,8 @@ def read_matched_students(file, output):
             write_project_pdf_contract(student_list, projects2[p], t, output)
             t += 1
             p += len(student_list)
+
+
 # This function attempts to read the projects from projects log and write it in another gsheet
 
 
