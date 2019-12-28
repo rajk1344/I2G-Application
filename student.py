@@ -1,4 +1,5 @@
 class Student(object):
+    
     def __init__(self, timestamp, first_name, last_name, email, contract, preferances):
         self.timestamp = timestamp
         self.first_name = first_name
@@ -6,3 +7,5 @@ class Student(object):
         self.email = email
         self.contract = contract
         self.preferances = preferances
+        self.size = 0
+        self.students = []

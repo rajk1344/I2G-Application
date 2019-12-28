@@ -3,10 +3,100 @@ import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 from fpdf import FPDF
 import pprint
+import xlsxwriter
+
+
+def write_master_xlsx(project_arr):
+
+    workbook = xlsxwriter.Workbook('hello.xlsx')
+    worksheet1 = workbook.add_worksheet('STUDENTS')
+
+    r = 1
+    team_number = 1
+
+    worksheet1.write_row(0, 0, ['Timestamp',
+                                'First Name',
+                                'Last Name',
+                                'Email',
+                                'Team #',
+                                'Project ID',
+                                'Organization Name',
+                                'Client First Name',
+                                'Client Last Name',
+                                'Client Email',
+                                'Project Title',
+                                'Background',
+                                'Problem',
+                                'Objectives',
+                                'Summary Link'])
+
+
+    worksheet2 = workbook.add_worksheet('PROJECTS')
+
+    for project in project_arr:
+        for student in project.students:
+            worksheet1.write_row(r, 0, [student.timestamp,
+                                        student.first_name,
+                                        student.email,
+                                        team_number,
+                                        project.project_id,
+                                        project.client_organization_name,
+                                        project.client_first_name,
+                                        project.client_last_name,
+                                        project.client_email,
+                                        project.project_title,
+                                        project.background,
+                                        project.problem,
+                                        project.objectives,
+                                        project.summary_link])
+            r = r + 1
+        team_number = team_number + 1
+
+    worksheet2.write_row(r, 0, ['Project ID',
+                                    'Team #',
+                                    'Time Updated',
+                                    'Email',
+                                    'Team #',
+                                    'Organization Name',
+                                    'Primary Contact First Name',
+                                    'Primary Contact Last Name',
+                                    'Primary Contact Email',
+                                    'Primary Contact Phone Number',
+                                    'Rules - Accepted',
+                                    'Project Title',
+                                    'Background',
+                                    'Problem',
+                                    'Objectives',
+                                    'Summary Link'])
+
+    # r = 0
+    # team_number = 1
+
+    # for project in project_arr:
+    #     worksheet2.write_row(r, 0, ['Project ID',
+    #                             'Team #',
+    #                             'Time Updated',
+    #                             'Email',
+    #                             'Team #',
+    #                             'Organization Name',
+    #                             'Primary Contact First Name',
+    #                             'Primary Contact Last Name',
+    #                             'Primary Contact Email',
+    #                             'Primary Contact Phone Number',
+    #                             'Rules - Accepted',
+    #                             'Project Title',
+    #                             'Background',
+    #                             'Problem',
+    #                             'Objectives',
+    #                             'Summary Link'])
+    #     r = r + 1
+    #     team_number = team_number + 1
+    workbook.close()
+
 
 def write_projects_csv(project_arr, destination):
 
-    with open(destination + '/student_csv.csv', 'w', encoding='utf-8-sig', newline = '') as f:
+    with open(destination + '/student_csv.csv', 'w', encoding='utf-8-sig', newline='') as f:
         writer = csv.writer(f)
         writer.writerow(['Timestamp', 'First Name', 'Last Name', 'Email', 'Team #', 'Project ID',
                          'Organization Name', 'Client First Name', 'Client Last Name', 'Client Email', 'Project Title'])
@@ -17,26 +107,31 @@ def write_projects_csv(project_arr, destination):
                                  project.client_organization_name, project.client_first_name, project.client_last_name, project.client_email, project.project_title])
             team_number = team_number + 1
 
+
 def write_projects_gsheet(project_arr, destination):
-    scope = ['https://spreadsheets.google.com/feeds','https://www.googleapis.com/auth/drive']
-    creds = ServiceAccountCredentials.from_json_keyfile_name('creds.json',scope)
+    scope = ['https://spreadsheets.google.com/feeds',
+             'https://www.googleapis.com/auth/drive']
+    creds = ServiceAccountCredentials.from_json_keyfile_name(
+        'creds.json', scope)
     client = gspread.authorize(creds)
     sheet = client.open(destination).sheet1
     sheet.insert_row(['Timestamp', 'First Name', 'Last Name', 'Email', 'Team #', 'Project ID',
-                     'Organization Name', 'Client First Name', 'Client Last Name', 'Client Email', 'Project Title'],1)
+                      'Organization Name', 'Client First Name', 'Client Last Name', 'Client Email', 'Project Title'], 1)
     team_number = 1
     index = 3
     for project in project_arr:
         for student in project.students:
             sheet.insert_row([student.timestamp, student.first_name, student.last_name, student.email, team_number, project.project_id,
-                             project.client_organization_name, project.client_first_name, project.client_last_name, project.client_email, project.project_title],index)
+                              project.client_organization_name, project.client_first_name, project.client_last_name, project.client_email, project.project_title], index)
             index = index + 1
         team_number = team_number + 1
 
 
 def write_project_information(source, destination):
-    scope = ['https://spreadsheets.google.com/feeds','https://www.googleapis.com/auth/drive']
-    creds = ServiceAccountCredentials.from_json_keyfile_name('creds.json',scope)
+    scope = ['https://spreadsheets.google.com/feeds',
+             'https://www.googleapis.com/auth/drive']
+    creds = ServiceAccountCredentials.from_json_keyfile_name(
+        'creds.json', scope)
     client = gspread.authorize(creds)
     source_sheet = client.open(source).sheet1
     destination_sheet = client.open(destination).sheet1
@@ -44,21 +139,27 @@ def write_project_information(source, destination):
     source_col = 3
     while source_sheet.cell(source_row, source_col).value != "":
         source_project_id = source_sheet.cell(source_row, source_col).value
-        dest_row = 4 
+        dest_row = 4
         dest_col = 1
         while destination_sheet.cell(dest_row, dest_col).value != source_project_id:
             dest_row = dest_row + 1
         i = 1
         k = 22
         while i <= 4:
-            data = source_sheet.cell(source_row,source_col+i).value
-            destination_sheet.update_cell(dest_row,dest_col+k,data)
+            data = source_sheet.cell(source_row, source_col+i).value
+            destination_sheet.update_cell(dest_row, dest_col+k, data)
             k = k+1
             i = i+1
         source_row = source_row+1
 
+<<<<<<< HEAD
 def export_missing_students(missing_student,incomplete_data, disagreed_students, destination):
     with open(destination + '/missing_student.csv', 'w', encoding='utf-8-sig', newline = '') as f:
+=======
+
+def export_missing_students(qualtrics, catcourse, bad_data, destination):
+    with open(destination + '/missing_student.csv', 'w', encoding='utf-8-sig', newline='') as f:
+>>>>>>> 362b8f2d468ff055faeeffb1b3cca1260205b17d
         writer = csv.writer(f)
         # Writing missing students information
         writer.writerow(['Students who have not finished qualtrics form'])
@@ -80,6 +181,7 @@ def export_missing_students(missing_student,incomplete_data, disagreed_students,
         for student in disagreed_students:
             writer.writerow(
                 [student.first_name, student.last_name, student.email])
+<<<<<<< HEAD
 """
 def write_clean_data(clean_data, destination):
     with open(destination + '/missing_student.csv', 'w', encoding='utf-8-sig', newline = '') as f:
@@ -89,6 +191,10 @@ def write_clean_data(clean_data, destination):
             writer.writerow(
                 [student.first_name, student.last_name, student.email])
 """
+=======
+
+
+>>>>>>> 362b8f2d468ff055faeeffb1b3cca1260205b17d
 def write_project_pdf_contract(student_list, project, t, destination):
     # creating the pdf document
     pdf = FPDF(format='letter', unit='in')
@@ -151,5 +257,7 @@ University of California Merced, Director of Innovation -> engineering.ucmerced.
     pdf.ln(0.5)
 
     # saves as filename
-    pdf.output(destination+'2019-July-Fall-CAP-StudentAgreement-Team'+str(t) +
+    pdf.output(destination+str(t) +
                '-'+project.client_organization_name+'-'+project.project_id+'.pdf', 'F')
+
+#'2019-July-Fall-CAP-StudentAgreement-Team'
