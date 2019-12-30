@@ -63,7 +63,7 @@ def read_students_new(file):
                     temp.append(1)
                 else:
                     temp.append(-1)
-                students.append(new_Student(row[0], row[1], row[2], row[3], row[4], row[9], temp))
+                students.append(new_Student(row[0], row[1], row[2], row[3], row[4], row[9], temp, False))
 
     return students
 
@@ -136,6 +136,4 @@ def get_projects_semester(source,destination,semester):
         row = semesters[i].row
         destination_sheet.append_row([source_sheet.cell(row,1).value,team,'',source_sheet.cell(row,10).value,source_sheet.cell(row,11).value,source_sheet.cell(row,12).value,source_sheet.cell(row,16).value,source_sheet.cell(row,17).value,source_sheet.cell(row,18).value,source_sheet.cell(row,19).value,source_sheet.cell(row,20).value])
         team = team + 1
-    time.sleep(10)
-
 
