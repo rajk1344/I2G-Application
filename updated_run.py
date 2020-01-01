@@ -19,6 +19,7 @@ G = create_graph(students, projects)
 print(nx.is_bipartite(G))
 
 teams = match_students(G,students,projects)
+print_result(teams)
 
 
 
