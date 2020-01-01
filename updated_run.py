@@ -19,9 +19,16 @@ print(nx.is_bipartite(G))
 
 flow_value, flow_dict = match_students(G)
 
+print(flow_value)
+
 R = edmonds_karp(G,'source','sink')
 
+stud = find_non_matched_students(R, students)
 
+print(len(stud))
+
+for p in projects:
+    print(flow_dict[p.project_title])
 
 
 #nx.draw(G,with_labels = True)

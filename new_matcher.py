@@ -16,7 +16,7 @@ def create_graph(students, projects):
                 G.add_node(p.project_title, bipartite = 1.0)
                 G.add_edge(s.email, p.project_title, capacity = 1.0)
                 G.add_edge('source',s.email,capacity = 1.0)
-                G.add_edge(p.project_title,'sink', capacity = 4.0)
+                G.add_edge(p.project_title,'sink', capacity = 3.0)
         count = count + 1
     return G
 
@@ -25,13 +25,20 @@ def match_students(G):
     return flow_value, flow_dict
 
 def find_non_matched_students(R,students):
-    students = []
+    stud = []
     for s in students:
         student_exists = R.has_node(s.email)
         if student_exists == False:
-            students.append(s)
-    return students
+            stud.append(s)
+    return stud
 
+def find_avaliable_projects(flow_dict,projects):
+    proj = []
+    for p in projects:
+            project_size = flow_dict[p.project_title]['sink']
+            if project_size < 3:
+                proj.append(p)
+    return proj
 
 
 
