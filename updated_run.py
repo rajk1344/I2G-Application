@@ -10,6 +10,7 @@ import networkx as nx
 import matplotlib.pyplot as plt
 from networkx.algorithms.flow import *
 from networkx.algorithms.bipartite import hopcroft_karp_matching
+from Team import *
 
 students = read_students_new('data/input/Test_data/student_data.csv')
 projects = read_projects('data/input/Test_data/projects.csv')
@@ -17,18 +18,9 @@ projects = read_projects('data/input/Test_data/projects.csv')
 G = create_graph(students, projects)
 print(nx.is_bipartite(G))
 
-flow_value, flow_dict = match_students(G)
+teams = match_students(G,students,projects)
 
-print(flow_value)
 
-R = edmonds_karp(G,'source','sink')
-
-stud = find_non_matched_students(R, students)
-
-print(len(stud))
-
-for p in projects:
-    print(flow_dict[p.project_title])
 
 
 #nx.draw(G,with_labels = True)
