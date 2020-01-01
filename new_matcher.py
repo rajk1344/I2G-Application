@@ -15,13 +15,14 @@ def create_graph(students, projects):
             for i in pref:
                 if i >= 3:
                     G.add_node(s.email,bipartite = 0)
-                    G.add_node(p.project_title, bipartite = 1.0)
-                    G.add_edge(s.email, p.project_title, capacity = 1.0)
+                    G.add_node(p.project_id, bipartite = 1.0)
+                    G.add_edge(s.email, p.project_id, capacity = 1.0)
                     G.add_edge('source',s.email,capacity = 1.0)
-                    G.add_edge(p.project_title,'sink', capacity = 3.0)
+                    G.add_edge(p.project_id,'sink', capacity = 3.0)
                     s.assigned = True
     return G
 
+#This function outputs a team array that consists of matched students and teams
 def match_students(G, students, projects):
     teams = []
     flow_value, flow_dict = nx.maximum_flow(G, 'source', 'sink', flow_func=edmonds_karp)
@@ -32,13 +33,14 @@ def match_students(G, students, projects):
         studs = []
         for s in students:
             if s.assigned == True:
-                if p.project_title in flow_dict[s.email]:
-                    if flow_dict[s.email][p.project_title] == 1.0:
+                if p.project_id in flow_dict[s.email]:
+                    if flow_dict[s.email][p.project_id] == 1.0:
                         studs.append(s)
         teams.append(Team(p,studs))
     teams = match_remaining_students(teams, G, flow_dict,students_left,avaliable_projects)
     return teams
 
+#This function finds those students that were not matched or were not present in the bipartite graph
 def find_non_matched_students(R,students):
     stud = []
     for s in students:
@@ -47,20 +49,22 @@ def find_non_matched_students(R,students):
             stud.append(s)
     return stud
 
+#This function finds the projects where non-matched students can go
 def find_avaliable_projects(flow_dict,projects):
     proj = []
     for p in projects:
-            project_size = flow_dict[p.project_title]['sink']['flow']
+            project_size = flow_dict[p.project_id]['sink']['flow']
             if project_size < 3:
                 proj.append(p)
     return proj
 
+#This function matches the remaining students with the remaining projects
 def match_remaining_students(teams, G, flow_dict, students, projects):
     for p in projects:
         studs = []
         if len(students) >= 1:
-            cap = G.get_edge_data(p.project_title, 'sink')
-            net_capacity = int(cap['capacity'] - flow_dict[p.project_title]['sink'])
+            cap = G.get_edge_data(p.project_id, 'sink')
+            net_capacity = int(cap['capacity'] - flow_dict[p.project_id]['sink'])
             for i in range(0,net_capacity):
                 s = students.pop(0)
                 studs.append(s)
@@ -68,6 +72,7 @@ def match_remaining_students(teams, G, flow_dict, students, projects):
             teams[index].students = studs
     return teams
 
+#This function returns the team array's index
 def find_team_index(teams, project_id):
     index = 0
     for t in teams:
@@ -77,11 +82,13 @@ def find_team_index(teams, project_id):
         index = index + 1
     return -1
 
+#This function prints the team array
 def print_result(teams):
     for t in teams:
+        print('-----')
         project = t.project
         students = t.students
-        print(project.project_title)
+        print(project.project_id)
         for s in students:
             print(s.email)
-        print('-----')
+    print('-----')
