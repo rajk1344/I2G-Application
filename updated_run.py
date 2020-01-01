@@ -8,12 +8,25 @@ from file_reader import *
 from new_matcher import *
 import networkx as nx
 import matplotlib.pyplot as plt
+from networkx.algorithms.flow import *
+from networkx.algorithms.bipartite import hopcroft_karp_matching
 
 students = read_students_new('data/input/Test_data/student_data.csv')
 projects = read_projects('data/input/Test_data/projects.csv')
 
 G = create_graph(students, projects)
 print(nx.is_bipartite(G))
+
+flow_value, flow_dict = match_students(G)
+
+R = edmonds_karp(G,'source','sink')
+
+
+
+
+#nx.draw(G,with_labels = True)
+#plt.show()
+
 
 """
 Testing the writing Projects log 

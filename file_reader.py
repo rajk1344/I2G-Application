@@ -63,7 +63,7 @@ def read_students_new(file):
                     temp.append(1)
                 else:
                     temp.append(-1)
-                students.append(new_Student(row[0], row[1], row[2], row[3], row[4], row[9], temp, False))
+            students.append(new_Student(row[0], row[1], row[2], row[3], row[4], row[9], temp, False))
 
     return students
 
