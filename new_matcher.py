@@ -64,8 +64,7 @@ def find_avaliable_projects(flow_dict,projects):
 def match_remaining_students(teams, G, flow_dict, students, projects):
     for p in projects:
         studs = []
-        print(len(students))
-        if len(students) >= 2:
+        if len(students) > 0:
             cap = G.get_edge_data(p.project_id, 'sink')
             net_capacity = int(cap['capacity'] - flow_dict[p.project_id]['sink'])
             for i in range(0,net_capacity):
