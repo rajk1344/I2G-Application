@@ -7,5 +7,7 @@ class Project(object):
         self.client_email = client_email
         self.project_title = project_title
 
+    """
     def print_project_info(project):
         pass
+    """
