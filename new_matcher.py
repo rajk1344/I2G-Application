@@ -4,29 +4,31 @@ import networkx as nx
 from networkx.algorithms.flow import *
 from networkx.algorithms.bipartite import hopcroft_karp_matching
 from Team import *
+import matplotlib.pyplot as plt
 
 #this function creates a bipartite graph before matching and assigns necessart capacity to each project
 
 def create_graph(students, projects):
     G = nx.DiGraph()
     for p in projects:
+        current = 0
         for s in students:
             pref = s.preferences
-            for i in pref:
-                if i >= 3:
-                    G.add_node(s.email,bipartite = 0)
-                    G.add_node(p.project_id, bipartite = 1.0)
-                    G.add_edge(s.email, p.project_id, capacity = 1.0)
-                    G.add_edge('source',s.email,capacity = 1.0)
-                    G.add_edge(p.project_id,'sink', capacity = 3.0)
-                    s.assigned = True
+            if pref[current] >= 3.0:
+                G.add_node(s.email,bipartite = 0)
+                G.add_node(p.project_id, bipartite = 1)
+                G.add_edge(s.email, p.project_id, capacity = 1.0)
+                G.add_edge('source',s.email,capacity = 1.0)
+                G.add_edge(p.project_id,'sink', capacity = 3.0)
+                s.assigned = True
+        current = current + 1
     return G
 
 #This function outputs a team array that consists of matched students and teams
 def match_students(G, students, projects):
     teams = []
-    flow_value, flow_dict = nx.maximum_flow(G, 'source', 'sink', flow_func=edmonds_karp)
-    R = edmonds_karp(G,'source','sink')
+    flow_value, flow_dict = nx.maximum_flow(G, 'source', 'sink', capacity = 'capacity', flow_func=edmonds_karp)
+    R = edmonds_karp(G,'source','sink', capacity='capacity')
     students_left = find_non_matched_students(R, students)
     avaliable_projects = find_avaliable_projects(R, projects)
     for p in projects:
@@ -62,7 +64,7 @@ def find_avaliable_projects(flow_dict,projects):
 def match_remaining_students(teams, G, flow_dict, students, projects):
     for p in projects:
         studs = []
-        if len(students) >= 1:
+        if len(students) > 0:
             cap = G.get_edge_data(p.project_id, 'sink')
             net_capacity = int(cap['capacity'] - flow_dict[p.project_id]['sink'])
             for i in range(0,net_capacity):
@@ -88,7 +90,7 @@ def print_result(teams):
         print('-----')
         project = t.project
         students = t.students
-        print(project.project_id)
+        print(project.project_title)
         for s in students:
             print(s.email)
     print('-----')
