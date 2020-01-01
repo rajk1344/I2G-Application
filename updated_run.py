@@ -16,13 +16,9 @@ students = read_students_new('data/input/Test_data/student_data.csv')
 projects = read_projects('data/input/Test_data/projects.csv')
 
 G = create_graph(students, projects)
-print(nx.is_bipartite(G))
 
 teams = match_students(G,students,projects)
 print_result(teams)
-
-
-
 
 #nx.draw(G,with_labels = True)
 #plt.show()

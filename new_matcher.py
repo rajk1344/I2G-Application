@@ -1,10 +1,11 @@
-from file_reader import *
 from new_student import *
 from project import *
 import networkx as nx
 from networkx.algorithms.flow import *
 from networkx.algorithms.bipartite import hopcroft_karp_matching
 from Team import *
+
+#this function creates a bipartite graph before matching and assigns necessart capacity to each project
 
 def create_graph(students, projects):
     G = nx.DiGraph()
@@ -24,10 +25,8 @@ def create_graph(students, projects):
 def match_students(G, students, projects):
     teams = []
     flow_value, flow_dict = nx.maximum_flow(G, 'source', 'sink', flow_func=edmonds_karp)
-    print(flow_value)
     R = edmonds_karp(G,'source','sink')
     students_left = find_non_matched_students(R, students)
-    print(len(students_left))
     avaliable_projects = find_avaliable_projects(R, projects)
     for p in projects:
         studs = []
@@ -52,26 +51,21 @@ def find_avaliable_projects(flow_dict,projects):
     proj = []
     for p in projects:
             project_size = flow_dict[p.project_title]['sink']['flow']
-            print(project_size)
             if project_size < 3:
                 proj.append(p)
     return proj
 
 def match_remaining_students(teams, G, flow_dict, students, projects):
-    print(len(students))
     for p in projects:
         studs = []
         if len(students) >= 1:
-            print('goes here')
             cap = G.get_edge_data(p.project_title, 'sink')
             net_capacity = int(cap['capacity'] - flow_dict[p.project_title]['sink'])
             for i in range(0,net_capacity):
                 s = students.pop(0)
-                print(s.email)
                 studs.append(s)
             index = find_team_index(teams, p.project_id)
             teams[index].students = studs
-            #teams.append(Team(p,studs))
     return teams
 
 def find_team_index(teams, project_id):
@@ -82,6 +76,7 @@ def find_team_index(teams, project_id):
             return index
         index = index + 1
     return -1
+
 def print_result(teams):
     for t in teams:
         project = t.project
