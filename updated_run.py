@@ -17,11 +17,10 @@ projects = read_projects('data/input/Test_data/projects.csv')
 
 G = create_graph(students, projects)
 
+
 teams = match_students(G,students,projects)
 print_result(teams)
 
-#nx.draw(G,with_labels = True)
-#plt.show()
 
 
 """
