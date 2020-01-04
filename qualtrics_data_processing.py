@@ -13,8 +13,10 @@ def list_missing(catcourse, qualtrics):
                 student_exists = True
         if (student_exists == False):
             missing_student.append(student)
+    return missing_student
     
-    # Pre-clean qualtrics data (Differentiating incomplete from complete)
+# Pre-clean qualtrics data (Differentiating incomplete from complete)
+def get_clean_incomplete_students(catcourse, qualtrics):
     incomplete_data = []
     clean_data = []
     for student in qualtrics:
@@ -27,11 +29,13 @@ def list_missing(catcourse, qualtrics):
                 incomplete_data.append(student)
         else:
             clean_data.append(student)
+    return incomplete_data, clean_data
     
-    # Looking for agreement and non-agreement students
+# Looking for agreement and non-agreement students
+def find_disagreed_students(catcourse,qualtrics):
     disagreed_students = []
     for student in qualtrics:
         if student.agreement != "I agree":
             disagreed_students.append(student)
 
-    return missing_student, incomplete_data, clean_data, disagreed_students
+    return disagreed_students
