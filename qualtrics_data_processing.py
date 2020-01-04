@@ -1,6 +1,4 @@
 import csv
-from student import *
-from new_student import *
 
 def list_missing(catcourse, qualtrics):
     #Checking whether a student has not at all done qualtrics
