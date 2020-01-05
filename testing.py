@@ -26,6 +26,12 @@ class testApp(unittest.TestCase):
       for o in output:
          res.append(o.email)
       self.assertListEqual(res,missing_students)
+      incomplete_students = ['ahales@ucmerced.edu', 'npooran@ucmerced.edu']
+      output, clean_data = get_clean_incomplete_students(catcourse, students)
+      res = []
+      for o in output:
+         res.append(o.email)
+      self.assertListEqual(res,incomplete_students)
 
 
 if __name__ == '__main__':
