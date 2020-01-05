@@ -25,7 +25,8 @@ def create_graph(students, projects):
     return G
 
 #This function outputs a team array that consists of matched students and teams
-def match_students(G, students, projects):
+def match_students(students, projects):
+    G = create_graph(students, projects)
     teams = []
     flow_value, flow_dict = nx.maximum_flow(G, 'source', 'sink', capacity = 'capacity', flow_func=edmonds_karp)
     R = edmonds_karp(G,'source','sink', capacity='capacity')
