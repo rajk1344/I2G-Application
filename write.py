@@ -10,15 +10,13 @@ def write_projects_csv(teams, destination):
         writer = csv.writer(f)
         writer.writerow(['Timestamp', 'First Name', 'Last Name', 'Email', 'Team #', 'Project ID',
                          'Organization Name', 'Client First Name', 'Client Last Name', 'Client Email', 'Project Title'])
-        team_number = 1
         for team in teams:
             students = team.students
             project = team.project
             for s in students:
-                writer.writerow([s.timestamp, s.first_name, s.last_name, s.email, team_number, 
+                writer.writerow([s.timestamp, s.first_name, s.last_name, s.email, team.team_number, 
                 project.project_id,project.client_organization_name, project.client_first_name, project.client_last_name, project.client_email,
                 project.project_title])
-            team_number = team_number + 1
 
 def write_projects_gsheet(project_arr, destination):
     scope = ['https://spreadsheets.google.com/feeds','https://www.googleapis.com/auth/drive']
@@ -83,15 +81,8 @@ def export_missing_students(missing_student,incomplete_data, disagreed_students,
         for student in disagreed_students:
             writer.writerow(
                 [student.first_name, student.last_name, student.email])
-"""
-def write_clean_data(clean_data, destination):
-    with open(destination + '/missing_student.csv', 'w', encoding='utf-8-sig', newline = '') as f:
-        writer = csv.writer(f)
-        writer.writerow(['Timestamp', '''First Name', 'Last Name', 'Email/UcmNetID'])
-        for student in qualtrics:
-            writer.writerow(
-                [student.first_name, student.last_name, student.email])
-"""
+
+#TODO: This definition needs to be updated with the team object
 def write_project_pdf_contract(student_list, project, t, destination):
     # creating the pdf document
     pdf = FPDF(format='letter', unit='in')
