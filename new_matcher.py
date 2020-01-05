@@ -31,6 +31,7 @@ def match_students(G, students, projects):
     R = edmonds_karp(G,'source','sink', capacity='capacity')
     students_left = find_non_matched_students(R, students)
     avaliable_projects = find_avaliable_projects(R, projects)
+    team_number = 1
     for p in projects:
         studs = []
         for s in students:
@@ -38,7 +39,8 @@ def match_students(G, students, projects):
                 if p.project_id in flow_dict[s.email]:
                     if flow_dict[s.email][p.project_id] == 1.0:
                         studs.append(s)
-        teams.append(Team(p,studs))
+        teams.append(Team(p,studs,team_number))
+        team_number = team_number + 1
     teams = match_remaining_students(teams, G, flow_dict,students_left,avaliable_projects)
     return teams
 
@@ -83,14 +85,3 @@ def find_team_index(teams, project_id):
             return index
         index = index + 1
     return -1
-
-#This function prints the team array
-def print_result(teams):
-    for t in teams:
-        print('-----')
-        project = t.project
-        students = t.students
-        print(project.project_title)
-        for s in students:
-            print(s.email)
-    print('-----')

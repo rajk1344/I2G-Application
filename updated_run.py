@@ -16,14 +16,16 @@ from data_cleanup import *
 students = read_students_new('data/input/Test_data/student_data1.csv')
 projects = read_projects('data/input/Test_data/projects.csv')
 catcourse = read_catcources('data/input/Test_data/roster.csv')
+
 missing_students = list_missing(catcourse, students)
 incomplete_data, clean_data = get_clean_incomplete_students(catcourse, students)
 disagreed_students = find_disagreed_students(catcourse, students)
 export_missing_students(missing_students,incomplete_data,disagreed_students,'data/output')
+
 new_clean_data = clean_data_students(students, clean_data)
 G = create_graph(new_clean_data, projects)
 teams = match_students(G, new_clean_data,projects)
-#print_result(teams)
+
 write_projects_csv(teams,'data/output')
 
 
