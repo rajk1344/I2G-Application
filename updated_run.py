@@ -27,6 +27,8 @@ teams = match_students(clean_data,projects)
 
 write_projects_csv(teams,'data/output')
 
+write_project_pdf_contract(teams,'data/output/contracts/')
+
 
 
 """
