@@ -17,13 +17,14 @@ def remove_duplicate_entries(clean_data):
     i = 1
     new_clean_data = clean_data
     for student in new_clean_data:
-        for sub_student in range(i,len(new_clean_data)):
+        for k in range(i,len(new_clean_data)):
+            sub_student = new_clean_data[k]
             if sub_student.email == student.email:
                 new_clean_data.remove(student)
         i = i + 1
     return new_clean_data
 
-def clean_data(qualtrics, clean_data):
+def clean_data_students(qualtrics, clean_data):
 
     clean_data = remove_disagreed_students(clean_data)
     clean_data = remove_duplicate_entries(clean_data)
