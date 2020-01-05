@@ -71,7 +71,7 @@ def export_missing_students(missing_student,incomplete_data, disagreed_students,
                 [student.first_name, student.last_name, student.email])
         writer.writerow('\n')
         # Writing Incomplete registration students information 
-        writer.writerow(['Students who have incomplete qualtrics data'])
+        writer.writerow(['Students who have incomplete qualtrics data and are not being considered for matching'])
         writer.writerow(['First Name', 'Last Name', 'Email/UcmNetID'])
         for student in incomplete_data:
             writer.writerow(

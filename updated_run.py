@@ -20,13 +20,10 @@ missing_students = list_missing(catcourse, students)
 incomplete_data, clean_data = get_clean_incomplete_students(catcourse, students)
 disagreed_students = find_disagreed_students(catcourse, students)
 export_missing_students(missing_students,incomplete_data,disagreed_students,'data/output')
-clean_data = clean_data_students(students, clean_data)
-
-G = create_graph(clean_data, projects)
-
-
-teams = match_students(G,students,projects)
-print_result(teams)
+new_clean_data = clean_data_students(students, clean_data)
+G = create_graph(new_clean_data, projects)
+teams = match_students(G, new_clean_data,projects)
+#print_result(teams)
 write_projects_csv(teams,'data/output')
 
 

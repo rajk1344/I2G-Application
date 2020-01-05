@@ -1,31 +1,28 @@
 ﻿Timestamp,First Name,Last Name,Email,Team #,Project ID,Organization Name,Client First Name,Client Last Name,Client Email,Project Title
-##########,Steve,Smith,ssmith@ucmerced.edu,1,20190059,T3 Energy,George,Panferov,g.panferov@sigbt.com,Mechanically Programmed Compression Device for T3Energy/SIGBT Highly Insulated Walls
-##########,Ross ,Taylor,rtaylor@ucmerced.edu,1,20190059,T3 Energy,George,Panferov,g.panferov@sigbt.com,Mechanically Programmed Compression Device for T3Energy/SIGBT Highly Insulated Walls
 ##########,Shane ,Watson,swatson@ucmerced.edu,1,20190059,T3 Energy,George,Panferov,g.panferov@sigbt.com,Mechanically Programmed Compression Device for T3Energy/SIGBT Highly Insulated Walls
-##########,Jessie,Ryder,jryder@ucmerced.edu,2,20190060,Morning Star,Tyler,Silverbottoms,tsilverbottom@morningstarco.com,MOT Removal & Water Treatment
-##########,Chris,Gayle,cgayle@ucmerced.edu,2,20190060,Morning Star,Tyler,Silverbottoms,tsilverbottom@morningstarco.com,MOT Removal & Water Treatment
+##########,Jessie,Ryder,jryder@ucmerced.edu,1,20190059,T3 Energy,George,Panferov,g.panferov@sigbt.com,Mechanically Programmed Compression Device for T3Energy/SIGBT Highly Insulated Walls
+##########,Ricky ,Ponting,rponting@ucmerced.edu,1,20190059,T3 Energy,George,Panferov,g.panferov@sigbt.com,Mechanically Programmed Compression Device for T3Energy/SIGBT Highly Insulated Walls
+##########,Steve,Smith,ssmith@ucmerced.edu,2,20190060,Morning Star,Tyler,Silverbottoms,tsilverbottom@morningstarco.com,MOT Removal & Water Treatment
 ##########,Paul,Williamson,pwilliamson@ucmerced.edu,2,20190060,Morning Star,Tyler,Silverbottoms,tsilverbottom@morningstarco.com,MOT Removal & Water Treatment
-##########,Ricky ,Ponting,rponting@ucmerced.edu,3,20190061,Bottens Family Farm,JR,Tacos,jrtacos@bottens.com,Livestock Waterer
+##########,Gary,Kirsten,gkirsten@ucmerced.edu,2,20190060,Morning Star,Tyler,Silverbottoms,tsilverbottom@morningstarco.com,MOT Removal & Water Treatment
 ##########,Micheal,Clarke,mclarke@ucmerced.edu,3,20190061,Bottens Family Farm,JR,Tacos,jrtacos@bottens.com,Livestock Waterer
 ##########,Mitchell ,Stark,mstark@ucmerced.edu,3,20190061,Bottens Family Farm,JR,Tacos,jrtacos@bottens.com,Livestock Waterer
-##########,Gary,Kirsten,gkirsten@ucmerced.edu,4,20190062,Bowles Farming,Tommy,Silberman,tommy@bfarm.com,Milkweed Harvester
-##########,James ,Pattinson,jpattinson@ucmerced.edu,4,20190062,Bowles Farming,Tommy,Silberman,tommy@bfarm.com,Milkweed Harvester
-##########,Aaron ,Simth,asmith@ucmerced.edu,4,20190062,Bowles Farming,Tommy,Silberman,tommy@bfarm.com,Milkweed Harvester
-##########,Marco,Padilla,mpadilla26@ucmerced.edu,5,20190063,Bay Area Rapid Transit (BART),Jessica,Lovett,JLovett@bart.gov,Track Obstruction Detection
-##########,Alex,Hales,ahales@ucmerced.edu,5,20190063,Bay Area Rapid Transit (BART),Jessica,Lovett,JLovett@bart.gov,Track Obstruction Detection
-##########,Jason ,Roy,jroy@ucmerced.edu,5,20190063,Bay Area Rapid Transit (BART),Jessica,Lovett,JLovett@bart.gov,Track Obstruction Detection
-##########,Aaron,Finch,afinch@ucmerced.edu,6,20190064,Bay Area Rapid Transit (BART),Jessica,Lovett,JLovett@bart.gov,Tracking Inspection Apparatus
-##########,Kane,Williamson,kwilliamson@ucmerced.edu,6,20190064,Bay Area Rapid Transit (BART),Jessica,Lovett,JLovett@bart.gov,Tracking Inspection Apparatus
-##########,Elliot,Wyatt,ewyatt@ucmerced.edu,6,20190064,Bay Area Rapid Transit (BART),Jessica,Lovett,JLovett@bart.gov,Tracking Inspection Apparatus
-##########,Shane ,Warne,swarne@ucmerced.edu,7,20190065,Bay Area Rapid Transit (BART),Jessica,Lovett,JLovett@bart.gov,Odor Abatement
-##########,Nicholas,Pooran,npooran@ucmerced.edu,7,20190065,Bay Area Rapid Transit (BART),Jessica,Lovett,JLovett@bart.gov,Odor Abatement
-##########,Andrew,Tye,atye@ucmerced.edu,7,20190065,Bay Area Rapid Transit (BART),Jessica,Lovett,JLovett@bart.gov,Odor Abatement
-##########,Angelo,Matthews,amatthews@ucmerced.edu,8,20190066,Bay Area Rapid Transit (BART),Jessica,Lovett,JLovett@bart.gov,Paved Road Perfection
-##########,Shaun,Pollock,spollock@ucmerced.edu,8,20190066,Bay Area Rapid Transit (BART),Jessica,Lovett,JLovett@bart.gov,Paved Road Perfection
-##########,Steve,Bucknor,sbucknor@ucmerced.edu,8,20190066,Bay Area Rapid Transit (BART),Jessica,Lovett,JLovett@bart.gov,Paved Road Perfection
-##########,Dale,Steyn,dsteyn@ucmerced.edu,9,20190067,TranPak,Aaron,Nguyen,amguyen@tranpak.com,Cheese Box
-##########,Devanshu ,Kumar,dkumar7@ucmerced.edu,9,20190067,TranPak,Aaron,Nguyen,amguyen@tranpak.com,Cheese Box
-##########,Daniel,Vettori,dvettori@ucmerced.edu,9,20190067,TranPak,Aaron,Nguyen,amguyen@tranpak.com,Cheese Box
-##########,James,Andersen,jandersen@ucmerced.edu,10,20190068,Turlock Irrigation District,Michelle,Geimer,mageimers@tid.org,Fish Strainer
-##########,Eion,Morgan ,emorgan@ucmerced.edu,10,20190068,Turlock Irrigation District,Michelle,Geimer,mageimers@tid.org,Fish Strainer
-##########,Jason ,Holder,jholder@ucmerced.edu,10,20190068,Turlock Irrigation District,Michelle,Geimer,mageimers@tid.org,Fish Strainer
+##########,Aaron ,Simth,asmith@ucmerced.edu,3,20190061,Bottens Family Farm,JR,Tacos,jrtacos@bottens.com,Livestock Waterer
+##########,Jason ,Roy,jroy@ucmerced.edu,4,20190062,Bowles Farming,Tommy,Silberman,tommy@bfarm.com,Milkweed Harvester
+##########,Ross ,Taylor,rtaylor@ucmerced.edu,4,20190062,Bowles Farming,Tommy,Silberman,tommy@bfarm.com,Milkweed Harvester
+##########,Devanshu ,Kumar,dkumar7@ucmerced.edu,4,20190062,Bowles Farming,Tommy,Silberman,tommy@bfarm.com,Milkweed Harvester
+##########,Aaron,Finch,afinch@ucmerced.edu,5,20190063,Bay Area Rapid Transit (BART),Jessica,Lovett,JLovett@bart.gov,Track Obstruction Detection
+##########,Kane,Williamson,kwilliamson@ucmerced.edu,5,20190063,Bay Area Rapid Transit (BART),Jessica,Lovett,JLovett@bart.gov,Track Obstruction Detection
+##########,Elliot,Wyatt,ewyatt@ucmerced.edu,5,20190063,Bay Area Rapid Transit (BART),Jessica,Lovett,JLovett@bart.gov,Track Obstruction Detection
+##########,Marco,Padilla,mpadilla26@ucmerced.edu,6,20190064,Bay Area Rapid Transit (BART),Jessica,Lovett,JLovett@bart.gov,Tracking Inspection Apparatus
+##########,Shane ,Warne,swarne@ucmerced.edu,6,20190064,Bay Area Rapid Transit (BART),Jessica,Lovett,JLovett@bart.gov,Tracking Inspection Apparatus
+##########,Dale,Steyn,dsteyn@ucmerced.edu,6,20190064,Bay Area Rapid Transit (BART),Jessica,Lovett,JLovett@bart.gov,Tracking Inspection Apparatus
+##########,Angelo,Matthews,amatthews@ucmerced.edu,7,20190065,Bay Area Rapid Transit (BART),Jessica,Lovett,JLovett@bart.gov,Odor Abatement
+##########,Steve,Bucknor,sbucknor@ucmerced.edu,7,20190065,Bay Area Rapid Transit (BART),Jessica,Lovett,JLovett@bart.gov,Odor Abatement
+##########,Daniel,Vettori,dvettori@ucmerced.edu,7,20190065,Bay Area Rapid Transit (BART),Jessica,Lovett,JLovett@bart.gov,Odor Abatement
+##########,James ,Pattinson,jpattinson@ucmerced.edu,8,20190066,Bay Area Rapid Transit (BART),Jessica,Lovett,JLovett@bart.gov,Paved Road Perfection
+##########,Chris,Gayle,cgayle@ucmerced.edu,8,20190066,Bay Area Rapid Transit (BART),Jessica,Lovett,JLovett@bart.gov,Paved Road Perfection
+##########,James,Andersen,jandersen@ucmerced.edu,8,20190066,Bay Area Rapid Transit (BART),Jessica,Lovett,JLovett@bart.gov,Paved Road Perfection
+##########,Eion,Morgan ,emorgan@ucmerced.edu,9,20190067,TranPak,Aaron,Nguyen,amguyen@tranpak.com,Cheese Box
+##########,Jason ,Holder,jholder@ucmerced.edu,9,20190067,TranPak,Aaron,Nguyen,amguyen@tranpak.com,Cheese Box
+##########,Shaun,Pollock,spollock@ucmerced.edu,9,20190067,TranPak,Aaron,Nguyen,amguyen@tranpak.com,Cheese Box
