@@ -37,5 +37,5 @@ def remove_duplicate_entries(clean_data):
 def clean_data_students(qualtrics, clean_data):
 
     new_clean_data = remove_disagreed_students(clean_data)
-    updated_new_clean_data = remove_duplicate_entries(new_clean_data)
-    return updated_new_clean_data
+    new_clean_data = remove_duplicate_entries(new_clean_data)
+    return new_clean_data

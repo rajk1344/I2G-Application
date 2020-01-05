@@ -22,9 +22,8 @@ incomplete_data, clean_data = get_clean_incomplete_students(catcourse, students)
 disagreed_students = find_disagreed_students(catcourse, students)
 export_missing_students(missing_students,incomplete_data,disagreed_students,'data/output')
 
-new_clean_data = clean_data_students(students, clean_data)
-G = create_graph(new_clean_data, projects)
-teams = match_students(G, new_clean_data,projects)
+clean_data = clean_data_students(students, clean_data)
+teams = match_students(clean_data,projects)
 
 write_projects_csv(teams,'data/output')
 
