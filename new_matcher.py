@@ -10,11 +10,11 @@ import matplotlib.pyplot as plt
 
 def create_graph(students, projects):
     G = nx.DiGraph()
+    current = 0
     for p in projects:
-        current = 0
         for s in students:
             pref = s.preferences
-            if pref[current] >= 3.0:
+            if pref[current] >= 4.0:
                 G.add_node(s.email,bipartite = 0)
                 G.add_node(p.project_id, bipartite = 1)
                 G.add_edge(s.email, p.project_id, capacity = 1.0)
@@ -63,14 +63,14 @@ def find_avaliable_projects(flow_dict,projects):
 #This function matches the remaining students with the remaining projects
 def match_remaining_students(teams, G, flow_dict, students, projects):
     for p in projects:
-        studs = []
+        index = find_team_index(teams, p.project_id)
+        studs = teams[index].students
         if len(students) > 0:
             cap = G.get_edge_data(p.project_id, 'sink')
             net_capacity = int(cap['capacity'] - flow_dict[p.project_id]['sink'])
             for i in range(0,net_capacity):
                 s = students.pop(0)
                 studs.append(s)
-            index = find_team_index(teams, p.project_id)
             teams[index].students = studs
     return teams
 

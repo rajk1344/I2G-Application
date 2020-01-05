@@ -8,24 +8,34 @@ This functionality does the following:
 """
 def remove_disagreed_students(clean_data):
     new_clean_data = clean_data
-    for student in new_clean_data:
-        if student.agreement != "I agree":
-            new_clean_data.remove(student)
+    i = 0 
+    while i < len(new_clean_data):
+        if str(new_clean_data[i].agreement) != "I agree":
+            del new_clean_data[i]
+        else:
+            i = i + 1
     return new_clean_data
 
 def remove_duplicate_entries(clean_data):
-    i = 1
     new_clean_data = clean_data
-    for student in new_clean_data:
-        for sub_student in range(i,len(new_clean_data)):
-            if sub_student.email == student.email:
-                new_clean_data.remove(student)
-        i = i + 1
+    i = 0
+    while i < len(new_clean_data):
+        duplicate = False
+        s = new_clean_data[i]
+        k = i + 1
+        while k < len(new_clean_data):
+            sub_student = new_clean_data[k]
+            if sub_student.email == s.email:
+                del new_clean_data[i]
+                duplicate = True
+                break
+            k = k + 1
+        if duplicate == False:
+            i = i + 1
     return new_clean_data
 
-def clean_data(qualtrics, clean_data):
+def clean_data_students(qualtrics, clean_data):
 
-    clean_data = remove_disagreed_students(clean_data)
-    clean_data = remove_duplicate_entries(clean_data)
-    
-    return clean_data
+    new_clean_data = remove_disagreed_students(clean_data)
+    updated_new_clean_data = remove_duplicate_entries(new_clean_data)
+    return updated_new_clean_data
