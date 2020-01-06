@@ -260,7 +260,8 @@ class ContractCreator(tk.Frame):
         self.button.grid(column=3, row=8, padx=20, pady=10)
 
     def runner(self):
-        read_matched_students(self.master_filename.name, self.output_location)
+        teams = read_matched_students(self.master_filename.name)
+        write_project_pdf_contract(teams, self.output_location)
         messagebox.showinfo("Title", "Done")
         pass
 
