@@ -82,7 +82,6 @@ def export_missing_students(missing_student,incomplete_data, disagreed_students,
             writer.writerow(
                 [student.first_name, student.last_name, student.email])
 
-#TODO: This definition needs to be updated with the team object
 def write_project_pdf_contract(teams, destination):
     for team in teams:
         #storing information in lists
@@ -149,5 +148,5 @@ def write_project_pdf_contract(teams, destination):
         pdf.ln(0.5)
 
         # saves as filename
-        pdf.output(destination+'2020-Jan-Spring-CAP-StudentAgreement-Team'+str(team.team_number) +
+        pdf.output(destination+'/2020-Jan-Spring-CAP-StudentAgreement-Team'+str(team.team_number) +
                 '-'+project.client_organization_name+'-'+project.project_id+'.pdf', 'F')

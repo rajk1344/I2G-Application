@@ -22,12 +22,12 @@ incomplete_data, clean_data = get_clean_incomplete_students(catcourse, students)
 disagreed_students = find_disagreed_students(catcourse, students)
 export_missing_students(missing_students,incomplete_data,disagreed_students,'data/output')
 
-clean_data = clean_data_students(students, clean_data)
+clean_data = clean_data_students(students)
 teams = match_students(clean_data,projects)
 
 write_projects_csv(teams,'data/output')
 
-write_project_pdf_contract(teams,'data/output/contracts/')
+#write_project_pdf_contract(teams,'data/output/contracts/')
 
 
 
