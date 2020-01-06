@@ -2,8 +2,10 @@ import tkinter as tk
 from tkinter import filedialog, messagebox
 
 from file_reader import *
-from matcher import *
-from missing_student import *
+from new_matcher import *
+from qualtrics_data_processing import *
+from write import *
+from data_cleanup import *
 
 
 class I2Gapp(tk.Tk):
@@ -43,17 +45,17 @@ class StartPage(tk.Frame):
         self.minsize = (640, 400)
 
         self.button1 = tk.Button(
-            self, text="Student Matcher",
+            self, text="Match Students",
             command=lambda: controller.show_frame(StudentMatcher))
         self.button1.grid(column=1, row=2, padx=20, pady=5)
-
+        
         self.button2 = tk.Button(
-            self, text="CatCourses Camparison",
+            self, text="Data preprocessing",
             command=lambda: controller.show_frame(CatCoursesMatcher))
         self.button2.grid(column=1, row=3, padx=20, pady=5)
 
         self.button3 = tk.Button(
-            self, text="Contract Creator",
+            self, text="Generate Contracts",
             command=lambda: controller.show_frame(ContractCreator))
         self.button3.grid(column=1, row=4, padx=20, pady=5)
 
@@ -67,7 +69,7 @@ class StudentMatcher(tk.Frame):
 
     def __init__(self, parent, controller):
         tk.Frame.__init__(self, parent)
-        label = tk.Label(self, text="Student Matcher")
+        label = tk.Label(self, text="Match Students")
         label.grid(column=2, row=1, padx=20, pady=20)
 
         self.minsize = (1000, 1000)
@@ -128,18 +130,13 @@ class StudentMatcher(tk.Frame):
         self.button.grid(column=3, row=8, padx=20, pady=10)
 
     def runner(self):
-        self.students, bad_data = read_students(self.student_filename.name)
+        self.students = read_students_new(self.student_filename.name)
         self.projects = read_projects(self.project_filename.name)
 
-        for student in self.students:
-            print(student.first_name)
-            print(student.preferances)
-            print("\n")
+        self.students = clean_data_students(self.students)
 
-        for project in self.projects:
-            print(project.project_id + "\t" + project.project_title)
-
-        match(self.students, self.projects, self.output_location)
+        teams = match_students(self.students, self.projects)
+        write_projects_csv(teams, self.output_location)
         messagebox.showinfo("Title", "Done")
 
 
@@ -147,7 +144,7 @@ class CatCoursesMatcher(tk.Frame):
 
     def __init__(self, parent, controller):
         tk.Frame.__init__(self, parent)
-        label = tk.Label(self, text="CatCourses Matcher")
+        label = tk.Label(self, text="Catcourse-Qualtrics Missing Data")
         label.grid(column=2, row=1, padx=20, pady=20)
 
         self.minsize = (1000, 1000)
@@ -179,12 +176,12 @@ class CatCoursesMatcher(tk.Frame):
 
     def catcources_file_button(self):
         self.button = tk.Button(
-            self, text="Select Catcources Roster", command=self.catcources_file_dialog)
+            self, text="Select Catcourse Roster", command=self.catcources_file_dialog)
         self.button.grid(column=2, row=4, padx=20, pady=5)
 
     def catcources_file_dialog(self):
         self.catcources_filename = filedialog.askopenfile(
-            initialdir="/", title="Select Catcources Roster")
+            initialdir="/", title="Select Catcourse Roster")
         self.label = tk.Label(self, text=self.catcources_filename.name)
         self.label.grid(column=2, row=5, padx=20, pady=0)
 
@@ -204,10 +201,12 @@ class CatCoursesMatcher(tk.Frame):
         self.button.grid(column=3, row=8, padx=20, pady=10)
 
     def runner(self):
-        self.qualtrics, bad_data = read_students(self.qualtrics_filename.name)
-        self.catcources = read_catcources(self.catcources_filename.name)
-        qualtrics, catcourse = list_missing(self.catcources, self.qualtrics)
-        export_missing_students(qualtrics, catcourse, bad_data, self.output_location)
+        self.qualtrics = read_students_new(self.qualtrics_filename.name)
+        self.catcourse = read_catcources(self.catcources_filename.name)
+        missing_students = list_missing(self.catcourse, self.qualtrics)
+        incomplete_students, clean_data = get_clean_incomplete_students(self.catcourse, self.qualtrics)
+        disagreed_students = find_disagreed_students(self.catcourse,self.qualtrics)
+        export_missing_students(missing_students, incomplete_students,disagreed_students,self.output_location)
         messagebox.showinfo("Title", "Done")
 
 
@@ -261,7 +260,8 @@ class ContractCreator(tk.Frame):
         self.button.grid(column=3, row=8, padx=20, pady=10)
 
     def runner(self):
-        read_matched_students(self.master_filename.name, self.output_location)
+        teams = read_matched_students(self.master_filename.name)
+        write_project_pdf_contract(teams, self.output_location)
         messagebox.showinfo("Title", "Done")
         pass
 

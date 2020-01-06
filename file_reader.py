@@ -3,7 +3,8 @@ from student import *
 from new_student import *
 from project import *
 from write import *
-from missing_student import *
+from qualtrics_data_processing import *
+from Team import *
 
 def read_students(file):
     students = []
@@ -97,31 +98,44 @@ def read_catcources(file):
     return catcourse
 
 #TODO This needs to be fixed
-def read_matched_students(file, output):
+def read_matched_students(file):
     with open(file, 'r', encoding='utf-8-sig') as csvfile:
         # create csvread obj
-
-        students2 = []
-        projects2 = []
-
         csvread = csv.reader(csvfile)
-        temp = []
-        # populate projects
+        t = 0
+        line_count = 0
+        teams = []
+        team_number = ''
+        project_id = ''
+        organization_name = ''
+        client_first_name = ''
+        client_last_name = ''
+        client_email =''
+        project_title = ''
+        studs = []
         for row in csvread:
-            students2.append(Student(row[0], row[1 ], row[2],row[3],row[4],0))
-            projects2.append(Project(row[5],row[6],row[7],row[8],row[9],row[10]))
-        t = 1
-        p = 1
-        projects2 = list(dict.fromkeys(projects2))
-        project_list = []
-        while t <= 10:
-            student_list = []
-            for student in students2:
-                if str(t) == student.contract:
-                    student_list.append(student)
-            write_project_pdf_contract(student_list, projects2[p],t, output)
-            t += 1
-            p += len(student_list)
+            if line_count == 0:
+                line_count = line_count + 1
+            else:
+                if t != int(row[4]):
+                    if t != 0: 
+                        team = Team(Project(project_id,organization_name,client_first_name, client_last_name,client_email,project_title),studs,team_number)
+                        teams.append(team)
+                    studs = []
+                    t = int(row[4])
+                    team_number = str(t)
+                    project_id = row[5]
+                    organization_name = row[6]
+                    client_first_name = row[7]
+                    client_last_name = row[8]
+                    client_email = row[9]
+                    project_title = row[10]
+                studs.append(new_Student(row[0],'1',row[1],row[2],row[3],'Yes','n/a',True))
+                line_count = line_count + 1
+        team = Team(Project(project_id,organization_name,client_first_name, client_last_name,client_email,project_title),studs,team_number)
+        teams.append(team)
+        return teams 
+                    
 #This function attempts to read the projects from projects log and write it in another gsheet
 def get_projects_semester(source,destination,semester):
     scope = ['https://spreadsheets.google.com/feeds','https://www.googleapis.com/auth/drive']
