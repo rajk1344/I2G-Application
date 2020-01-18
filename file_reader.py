@@ -1,4 +1,5 @@
 import csv
+from student import *
 from new_student import *
 from project import *
 from write import *
