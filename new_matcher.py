@@ -19,7 +19,7 @@ def create_graph(students, projects):
                 G.add_node(p.project_id, bipartite = 1)
                 G.add_edge(s.email, p.project_id, capacity = 1.0)
                 G.add_edge('source',s.email,capacity = 1.0)
-                G.add_edge(p.project_id,'sink', capacity = 3.0)
+                G.add_edge(p.project_id,'sink', capacity = 4.0)
                 s.assigned = True
         current = current + 1
     return G
@@ -86,10 +86,15 @@ def match_remaining_students(teams, G, flow_dict, students, projects, main_proje
         for p in main_projects:
             index = find_team_index(teams, p.project_id)
             studs = teams[index].students
-            if len(studs) < 4:
-                s = students.pop(0)
-                studs.append(s)
-                teams[index].students = studs         
+            if len(studs) < 5:
+                if len(students) == 1:
+                    studs.append(students[0])
+                    teams[index].students = studs
+                    break
+                else:
+                    s = students.pop(0)
+                    studs.append(s)
+                    teams[index].students = studs         
     return teams
 
 #This function returns the team array's index
