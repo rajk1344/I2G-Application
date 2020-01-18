@@ -1,28 +1,78 @@
 ﻿Timestamp,First Name,Last Name,Email,Team #,Project ID,Organization Name,Client First Name,Client Last Name,Client Email,Project Title
-##########,Shane ,Watson,swatson@ucmerced.edu,1,20190059,T3 Energy,George,Panferov,g.panferov@sigbt.com,Mechanically Programmed Compression Device for T3Energy/SIGBT Highly Insulated Walls
-##########,Jessie,Ryder,jryder@ucmerced.edu,1,20190059,T3 Energy,George,Panferov,g.panferov@sigbt.com,Mechanically Programmed Compression Device for T3Energy/SIGBT Highly Insulated Walls
-##########,Ricky ,Ponting,rponting@ucmerced.edu,1,20190059,T3 Energy,George,Panferov,g.panferov@sigbt.com,Mechanically Programmed Compression Device for T3Energy/SIGBT Highly Insulated Walls
-##########,Steve,Smith,ssmith@ucmerced.edu,2,20190060,Morning Star,Tyler,Silverbottoms,tsilverbottom@morningstarco.com,MOT Removal & Water Treatment
-##########,Paul,Williamson,pwilliamson@ucmerced.edu,2,20190060,Morning Star,Tyler,Silverbottoms,tsilverbottom@morningstarco.com,MOT Removal & Water Treatment
-##########,Gary,Kirsten,gkirsten@ucmerced.edu,2,20190060,Morning Star,Tyler,Silverbottoms,tsilverbottom@morningstarco.com,MOT Removal & Water Treatment
-##########,Micheal,Clarke,mclarke@ucmerced.edu,3,20190061,Bottens Family Farm,JR,Tacos,jrtacos@bottens.com,Livestock Waterer
-##########,Mitchell ,Stark,mstark@ucmerced.edu,3,20190061,Bottens Family Farm,JR,Tacos,jrtacos@bottens.com,Livestock Waterer
-##########,Aaron ,Simth,asmith@ucmerced.edu,3,20190061,Bottens Family Farm,JR,Tacos,jrtacos@bottens.com,Livestock Waterer
-##########,Jason ,Roy,jroy@ucmerced.edu,4,20190062,Bowles Farming,Tommy,Silberman,tommy@bfarm.com,Milkweed Harvester
-##########,Ross ,Taylor,rtaylor@ucmerced.edu,4,20190062,Bowles Farming,Tommy,Silberman,tommy@bfarm.com,Milkweed Harvester
-##########,Devanshu ,Kumar,dkumar7@ucmerced.edu,4,20190062,Bowles Farming,Tommy,Silberman,tommy@bfarm.com,Milkweed Harvester
-##########,Aaron,Finch,afinch@ucmerced.edu,5,20190063,Bay Area Rapid Transit (BART),Jessica,Lovett,JLovett@bart.gov,Track Obstruction Detection
-##########,Kane,Williamson,kwilliamson@ucmerced.edu,5,20190063,Bay Area Rapid Transit (BART),Jessica,Lovett,JLovett@bart.gov,Track Obstruction Detection
-##########,Elliot,Wyatt,ewyatt@ucmerced.edu,5,20190063,Bay Area Rapid Transit (BART),Jessica,Lovett,JLovett@bart.gov,Track Obstruction Detection
-##########,Marco,Padilla,mpadilla26@ucmerced.edu,6,20190064,Bay Area Rapid Transit (BART),Jessica,Lovett,JLovett@bart.gov,Tracking Inspection Apparatus
-##########,Shane ,Warne,swarne@ucmerced.edu,6,20190064,Bay Area Rapid Transit (BART),Jessica,Lovett,JLovett@bart.gov,Tracking Inspection Apparatus
-##########,Dale,Steyn,dsteyn@ucmerced.edu,6,20190064,Bay Area Rapid Transit (BART),Jessica,Lovett,JLovett@bart.gov,Tracking Inspection Apparatus
-##########,Angelo,Matthews,amatthews@ucmerced.edu,7,20190065,Bay Area Rapid Transit (BART),Jessica,Lovett,JLovett@bart.gov,Odor Abatement
-##########,Steve,Bucknor,sbucknor@ucmerced.edu,7,20190065,Bay Area Rapid Transit (BART),Jessica,Lovett,JLovett@bart.gov,Odor Abatement
-##########,Daniel,Vettori,dvettori@ucmerced.edu,7,20190065,Bay Area Rapid Transit (BART),Jessica,Lovett,JLovett@bart.gov,Odor Abatement
-##########,James ,Pattinson,jpattinson@ucmerced.edu,8,20190066,Bay Area Rapid Transit (BART),Jessica,Lovett,JLovett@bart.gov,Paved Road Perfection
-##########,Chris,Gayle,cgayle@ucmerced.edu,8,20190066,Bay Area Rapid Transit (BART),Jessica,Lovett,JLovett@bart.gov,Paved Road Perfection
-##########,James,Andersen,jandersen@ucmerced.edu,8,20190066,Bay Area Rapid Transit (BART),Jessica,Lovett,JLovett@bart.gov,Paved Road Perfection
-##########,Eion,Morgan ,emorgan@ucmerced.edu,9,20190067,TranPak,Aaron,Nguyen,amguyen@tranpak.com,Cheese Box
-##########,Jason ,Holder,jholder@ucmerced.edu,9,20190067,TranPak,Aaron,Nguyen,amguyen@tranpak.com,Cheese Box
-##########,Shaun,Pollock,spollock@ucmerced.edu,9,20190067,TranPak,Aaron,Nguyen,amguyen@tranpak.com,Cheese Box
+8/28/19 13:21,Alejandro,Downey,adowney2@ucmerced.edu,1,20190100,Agrecom,Mike,Altomare,mike@agrecom.net,Sample Loop Self Cleaning Filter
+8/28/19 13:27,Jesus,Mercado,jmercado25@ucmerced.edu,1,20190100,Agrecom,Mike,Altomare,mike@agrecom.net,Sample Loop Self Cleaning Filter
+8/28/19 13:34,Kenneth,Hamel,khamel@ucmerced.edu,1,20190100,Agrecom,Mike,Altomare,mike@agrecom.net,Sample Loop Self Cleaning Filter
+8/28/19 13:34,Brian,Rendon,brendon2@ucmerced.edu,1,20190100,Agrecom,Mike,Altomare,mike@agrecom.net,Sample Loop Self Cleaning Filter
+8/28/19 13:05,Marco,Padilla,mpadilla26@ucmerced.edu,1,20190100,Agrecom,Mike,Altomare,mike@agrecom.net,Sample Loop Self Cleaning Filter
+8/28/19 13:49,Jorge,Solorio,jsolorio6@ucmerced.edu,2,20190097,Mark,Stecker,mstecker@fresno.ucsf.edu,559-459-6283,Falling Monitor
+8/28/19 13:52,Manuel,Mendoza,mmendoza55@ucmerced.edu,2,20190097,Mark,Stecker,mstecker@fresno.ucsf.edu,559-459-6283,Falling Monitor
+8/28/19 14:04,Ryan,Ganton,rganton@ucmerced.edu,2,20190097,Mark,Stecker,mstecker@fresno.ucsf.edu,559-459-6283,Falling Monitor
+8/28/19 17:03,Gurshawn,Kahlon,gkahlon2@ucmerced.edu,2,20190097,Mark,Stecker,mstecker@fresno.ucsf.edu,559-459-6283,Falling Monitor
+8/28/19 14:36,Maha,Zaman,mzaman4@ucmerced.edu,2,20190097,Mark,Stecker,mstecker@fresno.ucsf.edu,559-459-6283,Falling Monitor
+8/28/19 13:35,Noah,Bautista,nbautista7@ucmerced.edu,3,20190092,UC Merced Facilities Management,James,Brugger,jbrugger@ucmerced.edu,Washing and Inspection of Solar Panels Employing RPAS
+8/28/19 13:45,Johnny,Alvarado,jalvarado27@ucmerced.edu,3,20190092,UC Merced Facilities Management,James,Brugger,jbrugger@ucmerced.edu,Washing and Inspection of Solar Panels Employing RPAS
+8/28/19 14:33,Erik,Reyes,ereyes23@ucmerced.edu,3,20190092,UC Merced Facilities Management,James,Brugger,jbrugger@ucmerced.edu,Washing and Inspection of Solar Panels Employing RPAS
+8/28/19 17:11,Roberto,Jimenez,rjimenez29@ucmerced.edu,3,20190092,UC Merced Facilities Management,James,Brugger,jbrugger@ucmerced.edu,Washing and Inspection of Solar Panels Employing RPAS
+8/28/19 15:07,Israel,Alberto,ialberto@ucmerced.edu,3,20190092,UC Merced Facilities Management,James,Brugger,jbrugger@ucmerced.edu,Washing and Inspection of Solar Panels Employing RPAS
+8/28/19 14:54,Ryan,Rivas,rrivas8@ucmerced.edu,4,20190104,Peninsula Plastics Recycling,Jun,Linarez,jlinarez@peninsularecycling.com,Flow Dynamics in Factory Trench System
+8/28/19 15:02,Sanjit,Saroya,ssaroya@ucmerced.edu,4,20190104,Peninsula Plastics Recycling,Jun,Linarez,jlinarez@peninsularecycling.com,Flow Dynamics in Factory Trench System
+8/28/19 15:56,Marcus,Ulloa,mulloa2@ucmerced.edu,4,20190104,Peninsula Plastics Recycling,Jun,Linarez,jlinarez@peninsularecycling.com,Flow Dynamics in Factory Trench System
+8/28/19 17:31,Ivan,Barba,ibarba2@ucmerced.edu,4,20190104,Peninsula Plastics Recycling,Jun,Linarez,jlinarez@peninsularecycling.com,Flow Dynamics in Factory Trench System
+8/28/19 16:35,David,Freiberg,dfreiberg@ucmerced.edu,4,20190104,Peninsula Plastics Recycling,Jun,Linarez,jlinarez@peninsularecycling.com,Flow Dynamics in Factory Trench System
+8/28/19 17:36,Daniel,Raya,draya@ucmerced.edu,5,20190088,Morning Star,Tyler,Klick,tklick@morningstarco.com,Bin Liner Assembly
+8/28/19 17:50,Joseph,Nabor,jnabor@ucmerced.edu,5,20190088,Morning Star,Tyler,Klick,tklick@morningstarco.com,Bin Liner Assembly
+8/28/19 17:54,Tamunotubo,George,tgeorge3@ucmerced.edu,5,20190088,Morning Star,Tyler,Klick,tklick@morningstarco.com,Bin Liner Assembly
+8/28/19 18:00,Francisco,Salcido,fsalcido@ucmerced.edu,5,20190088,Morning Star,Tyler,Klick,tklick@morningstarco.com,Bin Liner Assembly
+8/28/19 17:48,Andy,Nguyen,anguyen279@ucmerced.edu,5,20190088,Morning Star,Tyler,Klick,tklick@morningstarco.com,Bin Liner Assembly
+8/28/19 17:52,Zach,Yinger,zyinger@ucmerced.edu,6,20190087,Morning Star,Tyler,Klick,tklick@morningstarco.com,MOT Removal & Water Treatment
+8/28/19 17:52,Gilberto,Torres Sosa,gtorressosa@ucmerced.edu,6,20190087,Morning Star,Tyler,Klick,tklick@morningstarco.com,MOT Removal & Water Treatment
+8/28/19 17:53,Michael,Walker,mwalker26@ucmerced.edu,6,20190087,Morning Star,Tyler,Klick,tklick@morningstarco.com,MOT Removal & Water Treatment
+8/28/19 17:54,Martin,Hernandez,mhernandez272@ucmerced.edu,6,20190087,Morning Star,Tyler,Klick,tklick@morningstarco.com,MOT Removal & Water Treatment
+8/28/19 17:49,Cesar,Hurtado,churtado4@ucmerced.edu,6,20190087,Morning Star,Tyler,Klick,tklick@morningstarco.com,MOT Removal & Water Treatment
+8/28/19 16:05,Andres,Nunez,anunez47@ucmerced.edu,7,20190086,Sweep Energy,Agustin,Roldan,agustin@sweepenergy.com,Automated Electrical Meter Firmware Programmer in production line
+8/28/19 16:16,Eric,Pena,epena6@ucmerced.edu,7,20190086,Sweep Energy,Agustin,Roldan,agustin@sweepenergy.com,Automated Electrical Meter Firmware Programmer in production line
+8/28/19 17:56,Jose,Santana Serafin,jsantanaserafin@ucmerced.edu,7,20190086,Sweep Energy,Agustin,Roldan,agustin@sweepenergy.com,Automated Electrical Meter Firmware Programmer in production line
+8/28/19 17:58,Ryan,Torres,rtorres35@ucmerced.edu,7,20190086,Sweep Energy,Agustin,Roldan,agustin@sweepenergy.com,Automated Electrical Meter Firmware Programmer in production line
+8/28/19 17:54,Chazz,Mckinney,cmckinney2@ucmerced.edu,7,20190086,Sweep Energy,Agustin,Roldan,agustin@sweepenergy.com,Automated Electrical Meter Firmware Programmer in production line
+8/28/19 17:39,Edgar,Tejada,etejada@ucmerced.edu,8,20190085,BART,Lori,Lovett,LLovett@bart.gov,Underground Geolocation Solution
+8/28/19 17:51,Aaron,Laflin,alaflin@ucmerced.edu,8,20190085,BART,Lori,Lovett,LLovett@bart.gov,Underground Geolocation Solution
+8/28/19 17:52,Luis,Torrijos,ltorrijos@ucmerced.edu,8,20190085,BART,Lori,Lovett,LLovett@bart.gov,Underground Geolocation Solution
+8/28/19 17:59,Charles,Ashlock,cashlock@ucmerced.edu,8,20190085,BART,Lori,Lovett,LLovett@bart.gov,Underground Geolocation Solution
+8/28/19 17:54,Mariela,Arceo Madriz,marceomadriz@ucmerced.edu,8,20190085,BART,Lori,Lovett,LLovett@bart.gov,Underground Geolocation Solution
+8/28/19 14:14,Joshua D,Reynoso,jreynoso4@ucmerced.edu,9,20190084,BART,Lori,Lovett,LLovett@bart.gov,Track Obstruction Detection System
+8/28/19 17:51,Bryan,Martinez,bmartinez53@ucmerced.edu,9,20190084,BART,Lori,Lovett,LLovett@bart.gov,Track Obstruction Detection System
+8/28/19 18:00,Alejandro,Ortiz,aortiz47@ucmerced.edu,9,20190084,BART,Lori,Lovett,LLovett@bart.gov,Track Obstruction Detection System
+8/28/19 18:38,Fabian,Martinez Torres,fmartineztorres@ucmerced.edu,9,20190084,BART,Lori,Lovett,LLovett@bart.gov,Track Obstruction Detection System
+8/28/19 18:05,Alexander,Lopez,alopez279@ucmerced.edu,9,20190084,BART,Lori,Lovett,LLovett@bart.gov,Track Obstruction Detection System
+8/28/19 14:03,Arturo,Zaragoza,azaragoza7@ucmerced.edu,10,20190083,BART,Lori,Lovett,LLovett@bart.gov,Eco-Friendly Resolution for Stations and System Facilities: Pigeon Mitigation
+8/28/19 17:52,Kenji,Israels,kisraels@ucmerced.edu,10,20190083,BART,Lori,Lovett,LLovett@bart.gov,Eco-Friendly Resolution for Stations and System Facilities: Pigeon Mitigation
+8/28/19 17:59,John,Do,jdo32@ucmerced.edu,10,20190083,BART,Lori,Lovett,LLovett@bart.gov,Eco-Friendly Resolution for Stations and System Facilities: Pigeon Mitigation
+8/28/19 20:33,Armando,Mora,amora9@ucmerced.edu,10,20190083,BART,Lori,Lovett,LLovett@bart.gov,Eco-Friendly Resolution for Stations and System Facilities: Pigeon Mitigation
+8/28/19 14:36,Francisco,Curiel,fcuriel2@ucmerced.edu,11,20190081,The Wine Group,Jennifer,Shipman,jennifer.shipman@thewinegroup.com,Wastewater Conservation
+8/28/19 17:44,Mark,Radgowski,mradgowski@ucmerced.edu,11,20190081,The Wine Group,Jennifer,Shipman,jennifer.shipman@thewinegroup.com,Wastewater Conservation
+8/28/19 17:51,Samantha,Young,syoung32@ucmerced.edu,11,20190081,The Wine Group,Jennifer,Shipman,jennifer.shipman@thewinegroup.com,Wastewater Conservation
+8/28/19 17:51,Spencer,Cole,scole@ucmerced.edu,11,20190081,The Wine Group,Jennifer,Shipman,jennifer.shipman@thewinegroup.com,Wastewater Conservation
+8/28/19 16:39,Jose,Vega,jvega37@ucmerced.edu,12,20190078,E&J Gallo,Tim,Clopp,timothy.clopp@ejgallo.com,Glass Bottle Broken Finish Detection
+8/28/19 17:54,Kathryn,Bibas,kbibas@ucmerced.edu,12,20190078,E&J Gallo,Tim,Clopp,timothy.clopp@ejgallo.com,Glass Bottle Broken Finish Detection
+8/28/19 17:59,Samuel,Gottesfeld,sgottesfeld@ucmerced.edu,12,20190078,E&J Gallo,Tim,Clopp,timothy.clopp@ejgallo.com,Glass Bottle Broken Finish Detection
+8/28/19 17:59,Devanshu,Kumar,dkumar7@ucmerced.edu,12,20190078,E&J Gallo,Tim,Clopp,timothy.clopp@ejgallo.com,Glass Bottle Broken Finish Detection
+8/28/19 13:06,Judith,Mendoza,jmendoza76@ucmerced.edu,13,20190075,E&J Gallo,Jake,Aloia,jacob.aloia@ejgallo.com,Barrel Leak Detection
+8/28/19 13:57,Gustavo,Jimenez Sanchez,gjimenez5@ucmerced.edu,13,20190075,E&J Gallo,Jake,Aloia,jacob.aloia@ejgallo.com,Barrel Leak Detection
+8/28/19 16:14,Cheukho,Lui,clui4@ucmerced.edu,13,20190075,E&J Gallo,Jake,Aloia,jacob.aloia@ejgallo.com,Barrel Leak Detection
+8/28/19 17:51,Todd,Xiong,txiong36@ucmerced.edu,13,20190075,E&J Gallo,Jake,Aloia,jacob.aloia@ejgallo.com,Barrel Leak Detection
+8/28/19 15:07,Mariana,Vasquez,mvasquez38@ucmerced.edu,14,20190073,Valley Children's Hospital,Javier,Valero Fonseca,JValeroFonseca@valleychildrens.org,Quantification of muscle strength in humans (toddlers and teenagers)
+8/28/19 15:35,Amahirani,Venegas,avenegas23@ucmerced.edu,14,20190073,Valley Children's Hospital,Javier,Valero Fonseca,JValeroFonseca@valleychildrens.org,Quantification of muscle strength in humans (toddlers and teenagers)
+8/28/19 17:49,Douglas,Culham,dculham@ucmerced.edu,14,20190073,Valley Children's Hospital,Javier,Valero Fonseca,JValeroFonseca@valleychildrens.org,Quantification of muscle strength in humans (toddlers and teenagers)
+8/28/19 17:58,Lilybet,Martinez,lmartinez62@ucmerced.edu,14,20190073,Valley Children's Hospital,Javier,Valero Fonseca,JValeroFonseca@valleychildrens.org,Quantification of muscle strength in humans (toddlers and teenagers)
+8/28/19 13:58,Jordan,Colindres,jcolindres@ucmerced.edu,15,20190071,Del Monte Foods,Doug,Van Diepen,douglas.vandiepen@delmonte.com,Single Strength Juice
+8/28/19 15:08,Dylan,Basco,dbasco@ucmerced.edu,15,20190071,Del Monte Foods,Doug,Van Diepen,douglas.vandiepen@delmonte.com,Single Strength Juice
+8/28/19 16:14,Cesar,Velazquez,cvelazquez4@ucmerced.edu,15,20190071,Del Monte Foods,Doug,Van Diepen,douglas.vandiepen@delmonte.com,Single Strength Juice
+8/28/19 17:49,Benjamin,White,bwhite9@ucmerced.edu,15,20190071,Del Monte Foods,Doug,Van Diepen,douglas.vandiepen@delmonte.com,Single Strength Juice
+8/28/19 13:38,Javier,Chaname,jchaname@ucmerced.edu,16,20190066,Merced Irrigation District,Marco,Bell,mbell@mercedid.org,Lake Yosemite Capacity Curve
+8/28/19 14:50,Felix,Solano Flores,fsolanoflores@ucmerced.edu,16,20190066,Merced Irrigation District,Marco,Bell,mbell@mercedid.org,Lake Yosemite Capacity Curve
+8/28/19 16:27,Jason,Flores,jflores252@ucmerced.edu,16,20190066,Merced Irrigation District,Marco,Bell,mbell@mercedid.org,Lake Yosemite Capacity Curve
+8/28/19 17:55,Melissa,Tanner,mtanner@ucmerced.edu,16,20190066,Merced Irrigation District,Marco,Bell,mbell@mercedid.org,Lake Yosemite Capacity Curve
+8/28/19 13:18,Thomas,Willey,twilley@ucmerced.edu,17,20190103,The Pi Shop,Pedram,Dibaji,Pedram.Dibaji@thepishop.org,Automobile Roof Mounted Assisted Bicycle Rack
+8/28/19 17:49,Brian,Martin-Gutierrez,bmartin-gutierrez@ucmerced.edu,17,20190103,The Pi Shop,Pedram,Dibaji,Pedram.Dibaji@thepishop.org,Automobile Roof Mounted Assisted Bicycle Rack
+8/28/19 17:49,Grant,Chen,gchen38@ucmerced.edu,17,20190103,The Pi Shop,Pedram,Dibaji,Pedram.Dibaji@thepishop.org,Automobile Roof Mounted Assisted Bicycle Rack
+8/28/19 18:03,Tania,Palomino,tpalomino2@ucmerced.edu,17,20190103,The Pi Shop,Pedram,Dibaji,Pedram.Dibaji@thepishop.org,Automobile Roof Mounted Assisted Bicycle Rack

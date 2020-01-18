@@ -1,15 +1,15 @@
 ﻿Students who have not finished qualtrics form
 First Name,Last Name,Email/UcmNetID
-David Willey,0,dwilley
-Joe Root,0,jroot
+Name ,0,UCMNetID
+Alberto Eugenio,0,aeugenio
+Sagar Kumar,0,skumar36
+Erik Lopez,0,elopez93
+Test Student,0,233ce6a7f09b8b13cd776f3612922bc51be85c9d
 "
 "
 Students who have incomplete qualtrics data and are not being considered for matching
 First Name,Last Name,Email/UcmNetID
-Alex,Hales,ahales@ucmerced.edu
-Nicholas,Pooran,npooran@ucmerced.edu
 "
 "
 Students who have disagreed
 First Name,Last Name,Email/UcmNetID
-Andrew,Tye,atye@ucmerced.edu
