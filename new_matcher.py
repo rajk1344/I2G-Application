@@ -42,7 +42,8 @@ def match_students(students, projects):
                         studs.append(s)
         teams.append(Team(p,studs,team_number))
         team_number = team_number + 1
-    teams = match_remaining_students(teams, G, flow_dict,students_left,avaliable_projects)
+    if len(students_left) > 0:
+        teams = match_remaining_students(teams, G, flow_dict,students_left,avaliable_projects)
     return teams
 
 #This function finds those students that were not matched or were not present in the bipartite graph
@@ -75,6 +76,15 @@ def match_remaining_students(teams, G, flow_dict, students, projects):
                 s = students.pop(0)
                 studs.append(s)
             teams[index].students = studs
+    if len(students) > 0:
+        for p in projects:
+            if len(students) > 0:
+                index = find_team_index(teams, p.project_id)
+                studs = teams[index].students
+                if len(studs) < 4:
+                    s = students.pop(0)
+                    studs.append(s)
+                    teams[index].students = studs         
     return teams
 
 #This function returns the team array's index

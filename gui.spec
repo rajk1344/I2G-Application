@@ -4,7 +4,7 @@ block_cipher = None
 
 
 a = Analysis(['gui.py'],
-             pathex=['C:\\Users\\kiran\\Desktop\\C2G\\I2G-Application'],
+             pathex=['/Users/dev/Desktop/side_projects/I2G-Application'],
              binaries=[],
              datas=[],
              hiddenimports=[],

@@ -1,5 +1,4 @@
 import csv
-from student import *
 from new_student import *
 from project import *
 from write import *
@@ -97,7 +96,6 @@ def read_catcources(file):
 
     return catcourse
 
-#TODO This needs to be fixed
 def read_matched_students(file):
     with open(file, 'r', encoding='utf-8-sig') as csvfile:
         # create csvread obj
