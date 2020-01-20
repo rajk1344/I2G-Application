@@ -1,7 +1,9 @@
 import csv
+from data_cleanup import clean_data_students
 
 def list_missing(catcourse, qualtrics):
-    #Checking whether a student has not at all done qualtrics
+    #Checking whether a student has not at all done qualtrics 
+    qualtrics = clean_data_students(qualtrics)
     missing_student = [] 
     for student in catcourse:
         student_exists = False
@@ -15,6 +17,7 @@ def list_missing(catcourse, qualtrics):
     
 # Pre-clean qualtrics data (Differentiating incomplete from complete)
 def get_clean_incomplete_students(catcourse, qualtrics):
+    qualtrics = clean_data_students(qualtrics)
     incomplete_data = []
     clean_data = []
     for student in qualtrics:
@@ -31,6 +34,7 @@ def get_clean_incomplete_students(catcourse, qualtrics):
     
 # Looking for agreement and non-agreement students
 def find_disagreed_students(catcourse,qualtrics):
+    qualtrics = clean_data_students(qualtrics)
     disagreed_students = []
     for student in qualtrics:
         if student.agreement != "I agree":

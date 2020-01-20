@@ -4,8 +4,8 @@ block_cipher = None
 
 
 a = Analysis(['gui.py'],
-             pathex=['C:\\Users\\kiran\\Desktop\\C2G\\I2G-Application'],
-             binaries=[],
+             pathex=['/Users/dev/Desktop/side_projects/I2G-Application'],
+             binaries=[('/System/Library/Frameworks/Tk.framework/Tk', 'tk'), ('/System/Library/Frameworks/Tcl.framework/Tcl', 'tcl')],
              datas=[],
              hiddenimports=[],
              hookspath=[],

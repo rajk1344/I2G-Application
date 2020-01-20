@@ -1,4 +1,3 @@
-import qualtrics_data_processing
 from file_reader import *
 import csv
 
@@ -36,7 +35,7 @@ def remove_duplicate_entries(clean_data):
         k = i + 1
         while k < len(new_clean_data):
             sub_student = new_clean_data[k]
-            if sub_student.email == s.email:
+            if sub_student.email == s.email and sub_student.status == "1":
                 del new_clean_data[i]
                 duplicate = True
                 break
